@@ -1,13 +1,7 @@
 const Player = require("../models/Player");
 
 const getPlayers = async () => {
-  await Player.find({})
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  return await Player.find({});
 };
 
 const getSomePlayer = (id) => {};

@@ -14,7 +14,7 @@ app.use(express.static("public"));
 // routes
 app.use("/", template_route);
 
-// app.use("/api/v1/player", player_route);
+app.use("/api/v1/player", player_route);
 
 const start = async () => {
   try {

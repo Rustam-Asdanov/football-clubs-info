@@ -3,5 +3,24 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "mongoose": "^6.6.0"
-  }
+  },
+  "name": "player_cards",
+  "version": "1.0.0",
+  "description": "player cards project",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rustam-Asdanov/player_cards.git"
+  },
+  "author": "King",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rustam-Asdanov/player_cards/issues"
+  },
+  "homepage": "https://github.com/Rustam-Asdanov/player_cards#readme"
 }

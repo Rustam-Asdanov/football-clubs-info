@@ -23,7 +23,13 @@ const updatePlayer = async (id, body) => {
   });
 };
 
-const checkForExists = async (body) => {};
+const checkForExists = async (body) => {
+  return await Player.find({
+    fullname: body["fullname"],
+    age: body["age"],
+    country: body["country"],
+  });
+};
 
 module.exports = {
   getPlayers,
@@ -31,4 +37,5 @@ module.exports = {
   createPlayer,
   deletePlayer,
   updatePlayer,
+  checkForExists,
 };

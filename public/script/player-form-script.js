@@ -81,8 +81,12 @@ function newPlayer(body) {
     body: JSON.stringify(body),
   })
     .then((result) => {
-      if (result.status != 201) {
-        console.log(result);
+      if (result["status"] == 200) {
+        alert("Success");
+      } else {
+        result.json().then((res) => {
+          alert(res["message"]);
+        });
       }
     })
     .catch((err) => {
@@ -136,6 +140,9 @@ function modifyPlayer(id, body) {
 
 // this function delete player by id
 function deletePlayer(id) {
+  if (!confirm("Are you sure?")) {
+    return;
+  }
   fetch("/api/v1/player/" + id, {
     headers: {
       Accept: "application/json",

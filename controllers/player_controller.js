@@ -4,6 +4,7 @@ const {
   createPlayer,
   deletePlayer,
   updatePlayer,
+  checkForExists,
 } = require("../services/player_service");
 
 const getAllPlayers = async (req, res) => {
@@ -29,13 +30,33 @@ const getPlayerById = async (req, res) => {
 const addPlayer = async (req, res) => {
   const body = req.body;
   delete body["_id"];
-  await createPlayer(body)
-    .then((player) => {
-      res.status(201).json({ message: "success" });
+
+  // there we check if this player exists or not and we send to variable
+  // canSave following data:
+  // false - we can not add new player
+  // true - we can add new player
+  const canSave = await checkForExists(body)
+    .then((result) => {
+      if (result.length != 0) {
+        res
+          .status(501)
+          .json({ message: "Player with this data already exists" });
+        return false;
+      }
+      return true;
     })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
+    .catch((err) => console.log(err));
+
+  // there is save method
+  if (canSave) {
+    await createPlayer(body)
+      .then((player) => {
+        res.status(201).json({ message: "success" });
+      })
+      .catch((err) => {
+        res.status(500).json(err);
+      });
+  }
 };
 
 const deletePlayerById = async (req, res) => {

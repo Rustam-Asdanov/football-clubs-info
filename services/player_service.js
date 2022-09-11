@@ -4,21 +4,24 @@ const getPlayers = async () => {
   return await Player.find({});
 };
 
-const getSomePlayer = (id) => {};
-
-const createPlayer = async (body) => {
-  await Player.create(body)
-    .then((player) => {
-      console.log(player);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+const getSomePlayer = async (id) => {
+  return await Player.findById(id);
 };
 
-const deletePlayer = (id) => {};
+const createPlayer = async (body) => {
+  return await Player.create(body);
+};
 
-const updatePlayer = (id) => {};
+const deletePlayer = async (id) => {
+  return await Player.deleteOne({ _id: id });
+};
+
+const updatePlayer = async (id, body) => {
+  return await Player.findByIdAndUpdate({ _id: id }, body, {
+    new: true,
+    runValidators: true,
+  });
+};
 
 module.exports = {
   getPlayers,

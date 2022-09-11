@@ -1,5 +1,5 @@
 const express = require("express");
-const route = express.Router();
+const router = express.Router();
 
 const {
   getAllPlayers,
@@ -9,6 +9,11 @@ const {
   updatePlayerById,
 } = require("../controllers/player_controller");
 
-route.route("/").get(getAllPlayers).post(addPlayer);
+router.route("/").get(getAllPlayers).post(addPlayer);
+router
+  .route("/:id")
+  .get(getPlayerById)
+  .delete(deletePlayerById)
+  .patch(updatePlayerById);
 
-module.exports = route;
+module.exports = router;

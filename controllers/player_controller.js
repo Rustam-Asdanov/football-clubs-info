@@ -28,6 +28,7 @@ const getPlayerById = async (req, res) => {
 
 const addPlayer = async (req, res) => {
   const body = req.body;
+  delete body["_id"];
   await createPlayer(body)
     .then((player) => {
       res.status(201).json({ message: "success" });
@@ -40,7 +41,11 @@ const addPlayer = async (req, res) => {
 const deletePlayerById = async (req, res) => {
   await deletePlayer(req.params.id)
     .then((result) => {
-      res.status(200).json({ message: "success" });
+      if (!result || result["deletedCount"] == 0) {
+        res.status(404).json({ message: "player with given id not found" });
+      } else {
+        res.status(200).json({ message: "success" });
+      }
     })
     .catch((err) => {
       res.status(500).json(err);

@@ -23,6 +23,8 @@ const updatePlayer = async (id, body) => {
   });
 };
 
+const checkForExists = async (body) => {};
+
 module.exports = {
   getPlayers,
   getSomePlayer,

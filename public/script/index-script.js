@@ -3,9 +3,9 @@ function openPage(elem) {
 }
 
 document.getElementsByClassName("control")[0].addEventListener("click", () => {
-  openPage("newPlayer");
+  openPage("base");
 });
 
 document.getElementsByClassName("control")[1].addEventListener("click", () => {
-  openPage("base");
+  openPage("newPlayer");
 });

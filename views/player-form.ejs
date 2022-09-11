@@ -5,30 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      form,
-      input[type="button"] {
-        width: 150px;
-        font-size: x-large;
-      }
-
-      table {
-        background-color: red;
-        width: 100%;
-      }
-
-      table,
-      td,
-      tr,
-      th {
-        border: 3px solid black;
-        border-collapse: collapse;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="style/player-form-style.css" />
   </head>
   <body>
     <form>
+      <h2>Player Form</h2>
       <input type="hidden" name="_id" />
       <label for="p-number">Number</label>
       <input type="number" name="number" id="p-number" min="1" max="99" />
@@ -45,10 +26,10 @@
       <input type="reset" value="Reset" />
       <input type="submit" name="submit" value="Save" />
     </form>
-
+    <hr />
     <table>
       <caption>
-        Player base
+        <h2>Player Base</h2>
       </caption>
       <thead>
         <th>N</th>

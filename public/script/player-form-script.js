@@ -46,6 +46,7 @@ function fillTable() {
         const td_operations = document.createElement("td");
         const edit_button = document.createElement("button");
         edit_button.textContent = "Edit";
+        edit_button.classList.add("edit");
         edit_button.addEventListener("click", () => {
           editPlayer(player_obj["_id"]);
         });
@@ -53,6 +54,7 @@ function fillTable() {
 
         const delete_button = document.createElement("button");
         delete_button.textContent = "Delete";
+        delete_button.classList.add("delete");
         delete_button.addEventListener("click", () => {
           deletePlayer(player_obj["_id"]);
         });

@@ -28,6 +28,7 @@ const getPlayerById = async (req, res) => {
 
 const addPlayer = async (req, res) => {
   const body = req.body;
+  console.log(body);
   await createPlayer(body)
     .then((player) => {
       res.status(201).json({ message: "success" });

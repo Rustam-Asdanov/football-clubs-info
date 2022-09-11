@@ -1,21 +1,24 @@
-function sendData() {
-  const myForm = document.forms[0];
-  const data = new FormData();
-  data.append("number", myForm["number"].value);
-  data.append("fullname", myForm["fullname"].value);
-  data.append("country", myForm["country"].value);
-  data.append("club", myForm["club"].value);
-  data.append("position", myForm["position"].value);
-  data.append("age", myForm["age"].value);
+document.forms[0].addEventListener("submit", sendData);
 
-  console.log(data);
-  fetch("", {
+function sendData(event) {
+  event.preventDefault();
+  const myFormData = new FormData(event.target);
+
+  const formDataObj = {};
+  myFormData.forEach((value, key) => (formDataObj[key] = value));
+  console.log(formDataObj);
+
+  fetch("api/v1/player", {
     method: "POST",
-    body: data,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formDataObj),
   })
     .then((result) => {
-      if (result.status != 200) {
-        console.log("some problems");
+      if (result.status != 201) {
+        console.log(result);
       }
     })
     .catch((err) => {

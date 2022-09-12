@@ -23,45 +23,65 @@ function sendData(event) {
 }
 
 // This function fill table with data
+// function fillTable() {
+//   fetch("api/v1/player", { method: "Get" })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       const tbody = document.getElementsByTagName("tbody")[0];
+//       tbody.innerHTML = "";
+
+//       data.forEach((player_obj, number) => {
+//         const tr = document.createElement("tr");
+//         for (const [key, value] of Object.entries(player_obj)) {
+//           if (key === "__v") continue;
+//           const td = document.createElement("td");
+//           if (key === "_id") {
+//             td.textContent = number + 1;
+//           } else {
+//             td.textContent = value;
+//           }
+//           tr.appendChild(td);
+//         }
+
+//         const td_operations = document.createElement("td");
+//         const edit_button = document.createElement("button");
+//         edit_button.textContent = "Edit";
+//         edit_button.classList.add("edit");
+//         edit_button.addEventListener("click", () => {
+//           editPlayer(player_obj["_id"]);
+//         });
+//         td_operations.appendChild(edit_button);
+
+//         const delete_button = document.createElement("button");
+//         delete_button.textContent = "Delete";
+//         delete_button.classList.add("delete");
+//         delete_button.addEventListener("click", () => {
+//           deletePlayer(player_obj["_id"]);
+//         });
+//         td_operations.appendChild(delete_button);
+
+//         tr.appendChild(td_operations);
+//         tbody.appendChild(tr);
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
+
 function fillTable() {
-  fetch("api/v1/player", { method: "Get" })
+  fetch("api/v1/team", { method: "Get" })
     .then((response) => response.json())
     .then((data) => {
       const tbody = document.getElementsByTagName("tbody")[0];
       tbody.innerHTML = "";
 
-      data.forEach((player_obj, number) => {
-        const tr = document.createElement("tr");
-        for (const [key, value] of Object.entries(player_obj)) {
-          if (key === "__v") continue;
-          const td = document.createElement("td");
-          if (key === "_id") {
-            td.textContent = number + 1;
-          } else {
-            td.textContent = value;
+      data.forEach((team) => {
+        team.players.forEach((player) => {
+          if (player != null) {
+            creaeteRow(player, tbody);
           }
-          tr.appendChild(td);
-        }
-
-        const td_operations = document.createElement("td");
-        const edit_button = document.createElement("button");
-        edit_button.textContent = "Edit";
-        edit_button.classList.add("edit");
-        edit_button.addEventListener("click", () => {
-          editPlayer(player_obj["_id"]);
         });
-        td_operations.appendChild(edit_button);
-
-        const delete_button = document.createElement("button");
-        delete_button.textContent = "Delete";
-        delete_button.classList.add("delete");
-        delete_button.addEventListener("click", () => {
-          deletePlayer(player_obj["_id"]);
-        });
-        td_operations.appendChild(delete_button);
-
-        tr.appendChild(td_operations);
-        tbody.appendChild(tr);
       });
     })
     .catch((err) => {
@@ -69,11 +89,59 @@ function fillTable() {
     });
 }
 
+function creaeteRow(player, tbody) {
+  const tr = document.createElement("tr");
+
+  const headers = [
+    "N",
+    "fullname",
+    "country",
+    "club",
+    "age",
+    "position",
+    "number",
+  ];
+
+  headers.forEach((key) => {
+    const td = document.createElement("td");
+
+    if (key === "N") {
+      td.textContent = "0";
+    } else {
+      td.textContent = player[key];
+    }
+
+    tr.appendChild(td);
+  });
+
+  const td_operations = document.createElement("td");
+  const edit_button = document.createElement("button");
+  edit_button.textContent = "Edit";
+  edit_button.classList.add("edit");
+  edit_button.addEventListener("click", () => {
+    editPlayer(player["_id"]);
+  });
+  td_operations.appendChild(edit_button);
+
+  const delete_button = document.createElement("button");
+  delete_button.textContent = "Delete";
+  delete_button.classList.add("delete");
+  delete_button.addEventListener("click", () => {
+    deletePlayer(player["_id"]);
+  });
+  td_operations.appendChild(delete_button);
+
+  tr.appendChild(td_operations);
+  tbody.appendChild(tr);
+}
+
 // this function add new player
 function newPlayer(body) {
-  console.log("add new player");
-  fetch("api/v1/player", {
-    method: "POST",
+  const id = myForm["team_id"].value;
+  console.log("add new player", id);
+  console.log(body);
+  fetch("api/v1/team/" + id, {
+    method: "PUT",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -81,7 +149,7 @@ function newPlayer(body) {
     body: JSON.stringify(body),
   })
     .then((result) => {
-      if (result["status"] == 200) {
+      if (result["status"] == 201) {
         alert("Success");
       } else {
         result.json().then((res) => {

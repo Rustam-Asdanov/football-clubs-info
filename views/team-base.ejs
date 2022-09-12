@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+
+      section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      div.card {
+        font-size: 1.2rem;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        min-width: 200px;
+        width: 15%;
+        min-height: 300px;
+      }
+
+      div.card > button {
+        width: 100%;
+        font-size: 1.2rem;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <% teams.forEach((team)=>{ %>
+      <div class="card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"
+          alt=""
+        />
+
+        <h4><%= team['name'] %></h4>
+        <hr />
+
+        <button onclick="showPlayers(`<%= team['_id'] %>`)">Short Info</button>
+        <button onclick="moreInfo(`<%= team['_id'] %>`)">More Info</button>
+      </div>
+
+      <%});%>
+    </section>
+    <script src="script/team-script.js"></script>
+  </body>
+</html>

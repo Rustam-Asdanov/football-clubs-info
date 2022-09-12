@@ -87,6 +87,10 @@ const addNewPlayer = async (req, res) => {
   const id = req.params.id;
   const playerData = req.body;
 
+  if (playerData["_id"] != undefined) {
+    delete playerData["_id"];
+  }
+
   const player = await createPlayer(playerData)
     .then((result) => result)
     .catch((err) => {

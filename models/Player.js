@@ -4,7 +4,10 @@ const PlayerSchema = new mongoose.Schema({
   number: Number,
   fullname: String,
   country: String,
-  club: String,
+  club: {
+    type: String,
+    default: "null",
+  },
   position: String,
   age: Number,
 });

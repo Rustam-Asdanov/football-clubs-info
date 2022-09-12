@@ -18,7 +18,13 @@
       <label for="p-country">Country</label>
       <input type="text" name="country" id="p-country" />
       <label for="p-club">Club</label>
-      <input type="text" name="club" id="p-club" />
+
+      <select name="team_id" id="">
+        <% teams.forEach((team)=>{ %>
+        <option value="<%= team['_id'] %>"><%= team['name'] %></option>
+        <% });%>
+      </select>
+
       <label for="p-position">Position</label>
       <input type="text" name="position" id="p-position" />
       <label for="p-age">Age</label>

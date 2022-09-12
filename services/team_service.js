@@ -35,4 +35,5 @@ module.exports = {
   addTeam,
   deleteTeam,
   updateTeam,
+  addPlayerToTeam,
 };

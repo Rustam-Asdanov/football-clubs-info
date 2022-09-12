@@ -1,3 +1,4 @@
+const { createPlayer } = require("../services/player_service");
 const {
   getTeams,
   getTeam,
@@ -36,8 +37,7 @@ const getTeamById = async (req, res) => {
 
 const createTeam = async (req, res) => {
   const body = req.body;
-  delete body[_id];
-  await createTeam(body)
+  await addTeam(body)
     .then((result) => {
       res.status(201).json({ message: "Team created successfully" });
     })
@@ -85,8 +85,15 @@ const updateTeamById = async (req, res) => {
 
 const addNewPlayer = async (req, res) => {
   const id = req.params.id;
-  const body = req.body;
-  await addNewPlayer(id, body)
+  const playerData = req.body;
+
+  const player = await createPlayer(playerData)
+    .then((result) => result)
+    .catch((err) => {
+      console.log(err);
+    });
+
+  await addPlayerToTeam(id, player)
     .then((result) => {
       if (!result || result.length == 0) {
         res.status(404).json({ message: `Team with given id ${id} not found` });

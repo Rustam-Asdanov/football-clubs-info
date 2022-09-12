@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const playerSchema = require("./Player");
+const { PlayerSchema: playerSchema } = require("./Player");
 
 const teamSchema = new mongoose.Schema({
   name: String,

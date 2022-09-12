@@ -51,7 +51,7 @@ const addPlayer = async (req, res) => {
   if (canSave) {
     await createPlayer(body)
       .then((player) => {
-        res.status(201).json({ message: "success" });
+        res.status(201).json(player);
       })
       .catch((err) => {
         res.status(500).json(err);

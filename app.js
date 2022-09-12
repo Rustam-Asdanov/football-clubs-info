@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const connectDB = require("./databases/connection");
-const player_route = require("./routes/player_route");
-const template_route = require("./routes/template_route");
+const player_router = require("./routes/player_router");
+const template_router = require("./routes/template_router");
+const team_router = require("./routes/team_router");
 const port = 3000;
 
 // configuration
@@ -12,9 +13,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // routes
-app.use("/", template_route);
+app.use("/", template_router);
 
-app.use("/api/v1/player", player_route);
+app.use("/api/v1/player", player_router);
+
+app.use("/api/v1/team", team_router);
 
 const start = async () => {
   try {

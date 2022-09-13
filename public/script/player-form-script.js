@@ -165,7 +165,7 @@ function newPlayer(body) {
 // this function prepare form to editing player
 function editPlayer(id) {
   console.log("edit player " + id);
-  fetch("/api/v1/player/" + id, {
+  fetch("/api/v1/team/" + id, {
     method: "GET",
   })
     .then((response) => response.json())

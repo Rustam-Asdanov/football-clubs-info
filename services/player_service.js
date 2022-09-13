@@ -9,49 +9,72 @@ const getPlayers = async () => {
     });
   });
 
-  console.log(player);
-
   return player;
 };
 
+// there we send query to database by id of player
+// then we get all details about club and player where he is located.
+// This query return to as an Json object of team with players
+// therefore for getting this player from object we should use filter
+// method.
 const getSomePlayer = async (id) => {
-  let player = "";
+  return await Team.find({ "players._id": id })
+    .then((result) => {
+      const team = result[0].name;
+      const players = result[0].players;
 
-  await Team.find({ "players._id": id }).then((result) => {
-    const team = result[0].name;
-    const players = result[0].players;
-
-    const player = players.filter(
-      (x) => x._id === ObjectID("632076912b3ed5ac112f7ab4")
-    );
-    console.log(player);
-  });
-
-  return player;
+      const player = players.filter((x) => x._id == id)[0];
+      player["club"] = team;
+      return player;
+    })
+    .catch((err) => err);
 };
 
-// db.teams.find({"players.fullname": "Thomas Muller"}, {"players.$":1})
+/*
+  two types of searching element in nested array
+  first returns team with all players: 
+    db.teams.find({"players.fullname": "Thomas Muller"})
+  second returns only that player with id of team:
+    db.teams.find({"players.fullname": "Thomas Muller"}, {"players.$":1})
+*/
 
-const createPlayer = async (body) => {
-  return await Player.create(body);
+const createPlayer = async (id, player) => {
+  const team = await Team.findById(id);
+  team.players.push(player);
+  return await team.save();
 };
 
 const deletePlayer = async (id) => {
-  return await Player.deleteOne({ _id: id });
+  return await Team.updateOne(
+    { "players._id": id },
+    {
+      $pull: {
+        "players._id": id,
+      },
+    }
+  );
 };
 
 const updatePlayer = async (id, body) => {
-  return await Player.findByIdAndUpdate({ _id: id }, body, {
-    new: true,
-    runValidators: true,
-  });
+  return await Team.findByIdAndUpdate(
+    { "players._id": id },
+    {
+      $set: {
+        "players.$": body,
+      },
+    },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 };
 
 const checkForExists = async (body) => {
-  return await Player.find({
-    fullname: body["fullname"],
-    age: body["age"],
-    country: body["country"],
+  return await Team.find({
+    "players.fullname": body["fullname"],
+    "players.country": body["country"],
+    "players.age": body["age"],
   });
 };
 

@@ -23,11 +23,11 @@ const updateTeam = async (id, body) => {
   });
 };
 
-const addPlayerToTeam = async (id, player) => {
-  const team = await getTeam(id);
-  team.players.push(player);
-  return await team.save();
-};
+// const addPlayerToTeam = async (id, player) => {
+//   const team = await getTeam(id);
+//   team.players.push(player);
+//   return await team.save();
+// };
 
 module.exports = {
   getTeams,
@@ -35,5 +35,4 @@ module.exports = {
   addTeam,
   deleteTeam,
   updateTeam,
-  addPlayerToTeam,
 };

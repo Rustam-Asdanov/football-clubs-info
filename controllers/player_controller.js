@@ -28,18 +28,23 @@ const getPlayerById = async (req, res) => {
 };
 
 const addPlayer = async (req, res) => {
-  const body = req.body;
-  delete body["_id"];
+  const playerData = req.body;
+  const id = playerData["team_id"];
+  delete playerData["team_id"];
+
+  if (playerData["_id"] != undefined) {
+    delete playerData["_id"];
+  }
 
   // there we check if this player exists or not and we send to variable
   // canSave following data:
   // false - we can not add new player
   // true - we can add new player
-  const canSave = await checkForExists(body)
+  const canSave = await checkForExists(playerData)
     .then((result) => {
       if (result.length != 0) {
         res
-          .status(501)
+          .status(403)
           .json({ message: "Player with this data already exists" });
         return false;
       }
@@ -49,9 +54,15 @@ const addPlayer = async (req, res) => {
 
   // there is save method
   if (canSave) {
-    await createPlayer(body)
-      .then((player) => {
-        res.status(201).json(player);
+    await createPlayer(id, playerData)
+      .then((result) => {
+        if (!result || result.length == 0) {
+          res
+            .status(404)
+            .json({ message: `Team with given id ${id} not found` });
+        } else {
+          res.status(201).json(result);
+        }
       })
       .catch((err) => {
         res.status(500).json(err);

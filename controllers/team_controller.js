@@ -5,7 +5,6 @@ const {
   addTeam,
   deleteTeam,
   updateTeam,
-  addPlayerToTeam,
 } = require("../services/team_service");
 
 const getAllTeams = async (req, res) => {

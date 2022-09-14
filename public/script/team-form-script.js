@@ -2,30 +2,24 @@ const myForm = document.forms[0];
 
 myForm.addEventListener("submit", sendData);
 const formDataObj = {};
-const headers = [
-  "N",
-  "fullname",
-  "country",
-  "club",
-  "age",
-  "position",
-  "number",
-];
-setUrl("api/v1/player");
 
-// Thist function control save and modify methods
+const headers = ["N", "name", "country", "coach", "balance"];
+setUrl("api/v1/team");
+
 function sendData(event) {
   event.preventDefault();
   const myFormData = new FormData(event.target);
 
-  myFormData.forEach((value, key) => (formDataObj[key] = value));
+  myFormData.forEach((value, key) => {
+    formDataObj[key] = value;
+  });
+
   if (myForm["submit"].value === "Save") {
-    newObject(formDataObj);
+    newObject(url, formDataObj);
   } else if (myForm["submit"].value === "Modify") {
     modifyObject(myForm["_id"].value, formDataObj);
   }
   fillTable(url);
-  myForm.reset();
   return false;
 }
 

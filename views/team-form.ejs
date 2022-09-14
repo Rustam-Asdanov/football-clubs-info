@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team Form</title>
+    <link rel="stylesheet" href="style/team-form-style.css" />
   </head>
   <body>
-    <section></section>
+    <section>
+      <form>
+        <h2>New Team</h2>
+        <input type="hidden" name="_id" />
+        <label for="t-name">Team name</label>
+        <input type="text" name="name" id="t-name" />
+        <label for="t-country">Country</label>
+        <input type="text" name="country" id="t-country" />
+        <label for="t-league">League</label>
+        <input type="text" name="league" id="t-league" />
+        <label for="t-coach">Coach</label>
+        <input type="text" name="team_coach" id="t-coach" />
+        <label for="t-balance">Balance</label>
+        <input type="text" name="team_balance" id="t-balance" />
+        <input type="reset" value="Reset" />
+        <input type="submit" name="submit" id="" value="Save" />
+      </form>
+
+      <hr />
+      <table>
+        <thead>
+          <tr>
+            <th>N</th>
+            <th>Team name</th>
+            <th>Country</th>
+            <th>Coach</th>
+            <th>Balance</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>
+              <button>Previous</button>
+            </td>
+            <td colspan="4"></td>
+            <td>
+              <button>Next</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <script src="script/crud-operations-script.js"></script>
+    <script src="script/team-form-script.js"></script>
   </body>
 </html>

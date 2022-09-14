@@ -13,7 +13,7 @@ const addTeam = async (body) => {
 };
 
 const deleteTeam = async (id) => {
-  return await Team.deleteOne({ _id: id });
+  return await Team.findByIdAndDelete({ _id: id });
 };
 
 const updateTeam = async (id, body) => {
@@ -22,12 +22,6 @@ const updateTeam = async (id, body) => {
     runValidators: true,
   });
 };
-
-// const addPlayerToTeam = async (id, player) => {
-//   const team = await getTeam(id);
-//   team.players.push(player);
-//   return await team.save();
-// };
 
 module.exports = {
   getTeams,

@@ -9,11 +9,8 @@ const {
   updatePlayerById,
 } = require("../controllers/player_controller");
 
-router.route("/").get(getAllPlayers).post(addPlayer);
-router
-  .route("/:id")
-  .get(getPlayerById)
-  .delete(deletePlayerById)
-  .patch(updatePlayerById);
+router.route("/").get(getAllPlayers).post(addPlayer).patch(updatePlayerById);
+
+router.route("/:id").get(getPlayerById).delete(deletePlayerById);
 
 module.exports = router;

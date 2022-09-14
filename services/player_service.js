@@ -38,26 +38,30 @@ const getSomePlayer = async (id) => {
     db.teams.find({"players.fullname": "Thomas Muller"}, {"players.$":1})
 */
 
-const createPlayer = async (id, player) => {
-  const team = await Team.findById(id);
+const createPlayer = async (club_name, player) => {
+  const team = await Team.findOne({ name: club_name });
   team.players.push(player);
   return await team.save();
 };
 
+// this method delete player by id
 const deletePlayer = async (id) => {
   return await Team.updateOne(
     { "players._id": id },
     {
       $pull: {
-        "players._id": id,
+        players: {
+          _id: id,
+        },
       },
     }
   );
 };
 
-const updatePlayer = async (id, body) => {
-  return await Team.findByIdAndUpdate(
-    { "players._id": id },
+const updatePlayer = async (body) => {
+  console.log(body);
+  return await Team.findOneAndUpdate(
+    { "players._id": body["_id"] },
     {
       $set: {
         "players.$": body,

@@ -19,9 +19,9 @@
       <input type="text" name="country" id="p-country" />
       <label for="p-club">Club</label>
 
-      <select name="team_id" id="">
+      <select name="club" id="">
         <% teams.forEach((team)=>{ %>
-        <option value="<%= team['_id'] %>"><%= team['name'] %></option>
+        <option value="<%= team['name'] %>"><%= team['name'] %></option>
         <% });%>
       </select>
 
@@ -39,12 +39,12 @@
       </caption>
       <thead>
         <th>N</th>
-        <th>Number</th>
         <th>Full name</th>
         <th>Country</th>
         <th>Club</th>
-        <th>Position</th>
         <th>Age</th>
+        <th>Position</th>
+        <th>Number</th>
         <th>Operation</th>
       </thead>
       <tbody></tbody>

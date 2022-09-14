@@ -29,8 +29,7 @@ const getPlayerById = async (req, res) => {
 
 const addPlayer = async (req, res) => {
   const playerData = req.body;
-  const id = playerData["team_id"];
-  delete playerData["team_id"];
+  const club = playerData["club"];
 
   if (playerData["_id"] != undefined) {
     delete playerData["_id"];
@@ -54,12 +53,12 @@ const addPlayer = async (req, res) => {
 
   // there is save method
   if (canSave) {
-    await createPlayer(id, playerData)
+    await createPlayer(club, playerData)
       .then((result) => {
         if (!result || result.length == 0) {
           res
             .status(404)
-            .json({ message: `Team with given id ${id} not found` });
+            .json({ message: `Team with given name ${club} not found` });
         } else {
           res.status(201).json(result);
         }
@@ -85,7 +84,7 @@ const deletePlayerById = async (req, res) => {
 };
 
 const updatePlayerById = async (req, res) => {
-  await updatePlayer(req.params.id, req.body)
+  await updatePlayer(req.body)
     .then((result) => {
       if (!result) {
         res.status(404).json({ message: `No task with id: ${taskID}` });

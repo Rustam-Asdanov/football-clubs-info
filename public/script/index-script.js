@@ -3,9 +3,13 @@ function openPage(elem) {
 }
 
 document.getElementsByClassName("control")[0].addEventListener("click", () => {
-  openPage("base");
+  openPage("newTeam");
 });
 
 document.getElementsByClassName("control")[1].addEventListener("click", () => {
   openPage("newPlayer");
+});
+
+document.getElementsByClassName("control")[2].addEventListener("click", () => {
+  openPage("base");
 });

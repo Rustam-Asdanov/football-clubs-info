@@ -24,3 +24,9 @@ function sendData(event) {
 }
 
 fillTable(url);
+
+// it will give us previous 5 elements
+document.getElementById("previous-obj-btn").addEventListener("click", () => {});
+
+// it will give us next 5 elements
+document.getElementById("next-obj-btn").addEventListener("click", () => {});

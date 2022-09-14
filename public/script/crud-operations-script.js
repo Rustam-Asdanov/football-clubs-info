@@ -59,7 +59,6 @@ function createRow(counter, object, tbody) {
 }
 
 function newObject(body) {
-  console.log(body);
   fetch(url, {
     method: "POST",
     headers: {

@@ -15,7 +15,7 @@ function sendData(event) {
   });
 
   if (myForm["submit"].value === "Save") {
-    newObject(url, formDataObj);
+    newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
     modifyObject(myForm["_id"].value, formDataObj);
   }

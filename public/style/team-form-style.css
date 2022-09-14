@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: lightgreen;
 }
@@ -19,8 +25,22 @@ section {
 
 section form {
   min-width: 100px;
-  width: 20%;
+  width: 25%;
+}
+
+input[type="text"] {
+  box-shadow: 0 0 1px 1px;
+}
+
+label,
+input {
   text-align: center;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+label {
+  text-align: left;
 }
 
 table {

@@ -5,6 +5,8 @@ const teamSchema = new mongoose.Schema({
   name: String,
   country: String,
   league: String,
+  coach: String,
+  balance: String,
   players: [playerSchema],
 });
 

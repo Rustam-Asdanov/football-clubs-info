@@ -23,8 +23,18 @@ const getPlayerBase = async (req, res) => {
   res.render("team-base", { teams: myTeams });
 };
 
+const getTeamForm = async (req, res) => {
+  const myTeams = await getTeams()
+    .then((result) => result)
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+  res.render("team-form", { teams: myTeams });
+};
+
 module.exports = {
   getMainPage,
   getPlayerForm,
   getPlayerBase,
+  getTeamForm,
 };

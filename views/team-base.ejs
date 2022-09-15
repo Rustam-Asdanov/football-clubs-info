@@ -49,11 +49,10 @@
         <h4><%= team['name'] %></h4>
         <hr />
 
-        <button onclick="moreInfo(`<%= team['_id'] %>`)">More Info</button>
+        <a href="/moreInfo/<%= team['_id'] %>">More Info</a>
       </div>
 
       <%});%>
     </section>
-    <script src="script/team-script.js"></script>
   </body>
 </html>

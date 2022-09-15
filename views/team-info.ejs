@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/team-info-style.css" />
+  </head>
+  <body>
+    <h1><%= team['name'] %></h1>
+    <hr />
+    <header>
+      <ul>
+        <li>Country: <span><%= team['country']%></span></li>
+        <li>League: <span><%= team['league']%></span></li>
+        <li>Coach: <span><%= team['coach']%></span></li>
+        <li>Balance: <span><%= team['balance']%></span></li>
+      </ul>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"
+        alt=""
+      />
+    </header>
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>N</th>
+            <th>Full name</th>
+            <th>Country</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let counter = 1; %> <% for(let player of team['players']){ %>
+          <tr>
+            <td><%= counter++ %></td>
+            <td><%= player["fullname"] %></td>
+            <td><%= player["country"] %></td>
+            <td><%= player["age"] %></td>
+            <td><%= player["position"] %></td>
+            <td><%= player["number"] %></td>
+          </tr>
+          <% };%>
+        </tbody>
+      </table>
+    </section>
+
+    <script src="/script/team-info-script.js"></script>
+  </body>
+</html>

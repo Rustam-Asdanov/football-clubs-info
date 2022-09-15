@@ -8,18 +8,66 @@ body {
   background-color: aquamarine;
 }
 
+header {
+  background-color: silver;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+header ul li {
+  display: inline-block;
+  width: 25%;
+  font-size: 2rem;
+  text-align: center;
+  transition: 500ms all;
+  border: 5px solid black;
+  border-top: none;
+  cursor: pointer;
+}
+
+header ul li:hover {
+  background-color: yellow;
+  border-color: crimson;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  padding: 10px 15px;
+}
+
 img {
   width: 200px;
 }
 
-header {
+section.first {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 30px;
+  align-items: center;
+  padding: 50px;
 }
 
-table {
+section.first hr {
+  margin: 5px 0px 20px;
+}
+
+section.second {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.second table {
   width: 80%;
 }
 
@@ -41,11 +89,4 @@ thead {
   background-color: black;
   color: white;
   font-style: italic;
-}
-
-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

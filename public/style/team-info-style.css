@@ -54,39 +54,98 @@ section.first {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
+  font-size: 1.2rem;
+}
+
+section.first span {
+  font-weight: bolder;
+  font-style: italic;
+  letter-spacing: 3px;
 }
 
 section.first hr {
   margin: 5px 0px 20px;
 }
 
-section.second {
+section#table {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 
-section.second table {
+section#table table {
   width: 80%;
 }
 
-table,
-tr,
-td,
-th {
+section#table table,
+section#table tr,
+section#table td,
+section#table th {
   border: 3px solid black;
   border-collapse: collapse;
   font-size: 1.2rem;
 }
 
-td,
-th {
+section#table td,
+section#table th {
   padding: 10px;
 }
 
-thead {
+section#table thead {
   background-color: black;
   color: white;
   font-style: italic;
+}
+
+section#cards {
+  position: relative;
+  left: 10%;
+  padding: 50px;
+  margin: 20px 0;
+  width: 80%;
+  height: 500px;
+  border-radius: 10%;
+  box-shadow: 0 0 20px 10px black;
+  overflow-x: scroll;
+}
+
+section#cards .card {
+  background-color: #f7ef8a;
+  border-radius: 20px;
+  width: 200px;
+  height: 400px;
+}
+
+section#cards .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#cards table {
+  border-collapse: collapse;
+}
+
+section#cards table caption {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+  letter-spacing: 3px;
+  font-weight: bolder;
+  border-bottom: 3px solid black;
+  padding: 10px;
+}
+
+section#cards td {
+  padding: 10px;
+}
+
+section#cards td:nth-child(even) {
+  border-left: 3px solid black;
+}
+
+section#cards img {
+  border-radius: 20px 20px 0 0;
+  width: 100%;
 }

@@ -8,6 +8,16 @@ body {
   background-color: aquamarine;
 }
 
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  padding: 10px 15px;
+}
+
+/* navigation bar START */
+
 header {
   background-color: silver;
 }
@@ -35,17 +45,9 @@ header ul li:hover {
   border-color: crimson;
 }
 
-a {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
-  width: 100%;
-  padding: 10px 15px;
-}
+/* navigation bar END */
 
-img {
-  width: 200px;
-}
+/* first part of team details START */
 
 section.first {
   display: flex;
@@ -55,6 +57,11 @@ section.first {
   align-items: center;
   padding: 50px;
   font-size: 1.2rem;
+}
+
+section.first img {
+  margin: 50px;
+  width: 200px;
 }
 
 section.first span {
@@ -67,6 +74,52 @@ section.first hr {
   margin: 5px 0px 20px;
 }
 
+section.first h1 {
+  font-size: 2rem;
+  font-style: italic;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  padding-left: 30px;
+}
+
+/* end of first part team details END */
+
+/* buttons for switching between table form and cards START */
+
+div.controll {
+  width: 80%;
+  margin: 0px auto;
+  padding: 30px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div.controll button {
+  width: 40%;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  transition: 500ms all;
+  border: none;
+  border-radius: 15px;
+}
+
+div.controll button:hover {
+  color: #f7ef8a;
+  background-color: crimson;
+  box-shadow: 0 0 10px 10px crimson;
+}
+
+.active {
+  color: #f7ef8a;
+  background-color: crimson;
+  box-shadow: 0 0 10px 10px crimson;
+}
+
+/* buttons for switching between table form and cards END */
+
+/* representing team players in table START */
 section#table {
   width: 100%;
   display: flex;
@@ -98,6 +151,10 @@ section#table thead {
   color: white;
   font-style: italic;
 }
+
+/* representing team players in table END */
+
+/* representing team players by cards START */
 
 section#cards {
   position: relative;
@@ -148,4 +205,16 @@ section#cards td:nth-child(even) {
 section#cards img {
   border-radius: 20px 20px 0 0;
   width: 100%;
+}
+
+/* representing team players by cards END */
+
+@media only screen and (max-width: 800px) {
+  header ul {
+    flex-direction: column;
+  }
+
+  header ul li {
+    width: 100%;
+  }
 }

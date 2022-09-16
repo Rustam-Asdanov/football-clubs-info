@@ -92,8 +92,10 @@
     <div class="ability-box hide">
       <div>
         <form>
-          <h2 align="center">Player Ability</h2>
           <table>
+            <caption>
+              <h2>Player Ability</h2>
+            </caption>
             <tbody>
               <tr>
                 <td>
@@ -181,6 +183,15 @@
                     placeholder="overall"
                     value="50"
                     readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="button"
+                    value="Generate rating"
+                    onclick="randomRatingGenerate()"
                   />
                 </td>
               </tr>

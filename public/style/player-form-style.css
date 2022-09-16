@@ -113,14 +113,17 @@ div.ability-box > div {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 20%;
   background-color: silver;
   padding: 45px 40px;
   border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 div.ability-box > div > table {
-  margin: 10px 0;
   background-color: transparent;
 }
 

@@ -46,13 +46,15 @@ function sendData(event) {
   formDataObj["rating"] = ability_rate;
 
   console.log(formDataObj);
-  if (myForm["submit"].value === "Save") {
-    newObject(formDataObj);
-  } else if (myForm["submit"].value === "Modify") {
-    modifyObject(myForm["_id"].value, formDataObj);
-  }
-  fillTable(url);
+  // if (myForm["submit"].value === "Save") {
+  //   newObject(formDataObj);
+  // } else if (myForm["submit"].value === "Modify") {
+  //   modifyObject(myForm["_id"].value, formDataObj);
+  // }
+  // fillTable(url);
   myForm.reset();
+  document.getElementsByClassName("ability-box")[0].classList.add("hide");
+  return true;
 }
 
 document
@@ -66,8 +68,22 @@ document
       Object.values(ability_rate).forEach((value) => {
         overall_input += value;
       });
-      ability_rate["overall"] = Math.floor(overall_input / 6);
+      ability_rate["overall"] = Math.round(overall_input / 6);
       document.getElementsByName("overall")[0].value = ability_rate["overall"];
     })
   );
+
+function randomRatingGenerate() {
+  let overall_input = 0;
+  delete ability_rate["overall"];
+  Object.keys(ability_rate).forEach((key) => {
+    ability_rate[key] = Math.round(Math.random() * 70 + 30);
+    document.getElementsByName(key)[0].value = ability_rate[key];
+    overall_input += ability_rate[key];
+  });
+
+  ability_rate["overall"] = Math.round(overall_input / 6);
+  document.getElementsByName("overall")[0].value = ability_rate["overall"];
+}
+
 fillTable(url);

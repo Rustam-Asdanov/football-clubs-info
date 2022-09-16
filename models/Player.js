@@ -11,14 +11,14 @@ const PlayerSchema = new mongoose.Schema({
   position: String,
   age: Number,
   image: String,
-  card_rating: {
-    PACE: Number,
-    DRIBBLING: Number,
-    SHOOTING: Number,
-    DEFENDING: Number,
-    PASSING: Number,
-    PHYSICAL: Number,
-    OVERALL: Number,
+  rating: {
+    pace: Number,
+    dribbling: Number,
+    shooting: Number,
+    defending: Number,
+    passing: Number,
+    physical: Number,
+    overall: Number,
   },
 });
 

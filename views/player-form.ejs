@@ -28,11 +28,28 @@
       <h2>Player Form</h2>
       <input type="hidden" name="_id" />
       <label for="p-number">Number</label>
-      <input type="number" name="number" id="p-number" min="1" max="99" />
+      <input
+        type="number"
+        name="number"
+        id="p-number"
+        min="1"
+        max="99"
+        placeholder="10"
+      />
       <label for="p-name">Full name</label>
-      <input type="text" name="fullname" id="p-name" />
+      <input
+        type="text"
+        name="fullname"
+        id="p-name"
+        placeholder="Diego Maradona"
+      />
       <label for="p-country">Country</label>
-      <input type="text" name="country" id="p-country" />
+      <input
+        type="text"
+        name="country"
+        id="p-country"
+        placeholder="Argentina"
+      />
       <label for="p-club">Club</label>
 
       <select name="club" id="">
@@ -42,9 +59,14 @@
       </select>
 
       <label for="p-position">Position</label>
-      <input type="text" name="position" id="p-position" />
+      <input type="text" name="position" id="p-position" placeholder="CF" />
+
       <label for="p-age">Age</label>
-      <input type="text" name="age" id="p-age" />
+      <input type="text" name="age" id="p-age" placeholder="25" />
+
+      <label for="p-image">Image Url</label>
+      <input type="url" name="image" id="p-image" placeholder="https://" />
+
       <input type="reset" value="Reset" />
       <input type="submit" name="submit" value="Save" />
     </form>
@@ -61,10 +83,118 @@
         <th>Age</th>
         <th>Position</th>
         <th>Number</th>
+        <th>Image</th>
         <th>Operation</th>
       </thead>
       <tbody></tbody>
     </table>
+
+    <div class="ability-box hide">
+      <div>
+        <form>
+          <h2 align="center">Player Ability</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="number"
+                    name="pace"
+                    min="1"
+                    max="99"
+                    placeholder="PAC"
+                    title="pace"
+                    value="50"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    name="dribbling"
+                    min="1"
+                    max="99"
+                    placeholder="DRI"
+                    title="dribbling"
+                    value="50"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="number"
+                    name="shooting"
+                    min="1"
+                    max="99"
+                    placeholder="SHO"
+                    title="shooting"
+                    value="50"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    name="defending"
+                    min="1"
+                    max="99"
+                    placeholder="DEF"
+                    title="defending"
+                    value="50"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="number"
+                    name="passing"
+                    min="1"
+                    max="99"
+                    placeholder="PAS"
+                    title="passing"
+                    value="50"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    name="physical"
+                    min="1"
+                    max="99"
+                    placeholder="PHY"
+                    title="physical"
+                    value="50"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="overall"
+                    placeholder="overall"
+                    value="50"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input type="submit" value="Submit" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+
     <script src="script/crud-operations-script.js"></script>
     <script src="script/player-form-script.js"></script>
   </body>

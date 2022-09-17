@@ -4,6 +4,7 @@ const connectDB = require("./databases/connection");
 const player_router = require("./routes/player_router");
 const template_router = require("./routes/template_router");
 const team_router = require("./routes/team_router");
+const notFound = require("./middleware/not-found");
 const port = 3000;
 
 // configuration
@@ -18,6 +19,8 @@ app.use("/", template_router);
 app.use("/api/v1/player", player_router);
 
 app.use("/api/v1/team", team_router);
+
+app.use(notFound);
 
 const start = async () => {
   try {

@@ -4,7 +4,10 @@ function setUrl(myUrl) {
   url = myUrl;
 }
 
-function fillTable() {
+function fillTable(myUrl) {
+  if (myUrl !== "") {
+    url = myUrl;
+  }
   fetch(url, { method: "GET" })
     .then((response) => response.json())
     .then((data) => {

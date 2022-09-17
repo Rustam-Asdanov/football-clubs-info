@@ -7,7 +7,8 @@ const {
 } = require("../services/team_service");
 
 const getAllTeams = async (req, res) => {
-  await getTeams()
+  const page = req.params.page;
+  await getTeams(page)
     .then((result) => {
       res.status(200).json(result);
     })

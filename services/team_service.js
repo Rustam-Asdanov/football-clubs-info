@@ -1,7 +1,9 @@
 const Team = require("../models/Team");
 
-const getTeams = async () => {
-  return await Team.find({});
+const getTeams = async (page) => {
+  return await Team.find({})
+    .skip((page - 1) * 5)
+    .limit(5);
 };
 
 const getTeam = async (id) => {

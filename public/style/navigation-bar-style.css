@@ -1,0 +1,34 @@
+header {
+  background-color: silver;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+header ul li {
+  display: inline-block;
+  width: 25%;
+  font-size: 2rem;
+  text-align: center;
+  transition: 500ms all;
+  border: 5px solid black;
+  border-top: none;
+  cursor: pointer;
+}
+
+header ul li:hover {
+  background-color: yellow;
+  border-color: crimson;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  padding: 10px 15px;
+}

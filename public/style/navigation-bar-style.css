@@ -1,5 +1,5 @@
 header {
-  background-color: silver;
+  background-color: #003049;
   position: relative;
   top: 0;
   left: 0;
@@ -20,20 +20,19 @@ header ul li {
   font-size: 2rem;
   text-align: center;
   transition: 500ms all;
-  border: 5px solid black;
+  border: 1px solid black;
   border-top: none;
   cursor: pointer;
 }
 
 header ul li:hover {
-  background-color: yellow;
-  border-color: crimson;
+  background-color: #d62828;
 }
 
 a {
   display: inline-block;
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   width: 100%;
   padding: 10px 15px;
 }

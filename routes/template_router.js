@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   getMainPage,
   getPlayerForm,
-  getPlayerBase,
+  getTeamBase,
   getTeamForm,
   getTeamInfo,
 } = require("../controllers/template_controller");
@@ -12,7 +12,8 @@ const {
 router.route("/").get(getMainPage);
 router.route("/main").get(getMainPage);
 router.route("/newPlayer").get(getPlayerForm);
-router.route("/base").get(getPlayerBase);
+router.route("/base").get(getTeamBase);
+router.route("/base/:page").get(getTeamBase);
 router.route("/newTeam").get(getTeamForm);
 router.route("/moreInfo/:id").get(getTeamInfo);
 

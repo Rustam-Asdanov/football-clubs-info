@@ -26,6 +26,15 @@
       </ul>
     </header>
     <section>
+      <div class="controll">
+        <button id="previous-obj-btn">
+          <img src="/img/back.png" alt="back" />
+        </button>
+        <button id="next-obj-btn">
+          <img src="/img/next.png" alt="next" />
+        </button>
+      </div>
+
       <% teams.forEach((team)=>{ %>
       <div class="card">
         <img
@@ -41,5 +50,6 @@
 
       <%});%>
     </section>
+    <script src="/script/team-base-script.js"></script>
   </body>
 </html>

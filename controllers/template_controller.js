@@ -14,13 +14,21 @@ const getPlayerForm = async (req, res) => {
   res.render("player-form", { teams: myTeams });
 };
 
-const getPlayerBase = async (req, res) => {
-  const myTeams = await getTeams()
+const getTeamBase = async (req, res) => {
+  let page = req.params.page;
+  if (page == undefined || page < 1) {
+    page = 1;
+  }
+  const myTeams = await getTeams(page)
     .then((result) => result)
     .catch((err) => {
       res.status(500).json(err);
     });
-  res.render("team-base", { teams: myTeams });
+  if (myTeams.length == 0) {
+    res.status(404).json({ message: "There is no club" });
+  } else {
+    res.render("team-base", { teams: myTeams });
+  }
 };
 
 const getTeamForm = async (req, res) => {
@@ -45,7 +53,7 @@ const getTeamInfo = async (req, res) => {
 module.exports = {
   getMainPage,
   getPlayerForm,
-  getPlayerBase,
+  getTeamBase,
   getTeamForm,
   getTeamInfo,
 };

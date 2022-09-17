@@ -10,7 +10,11 @@ const PlayerSchema = new mongoose.Schema({
   },
   position: String,
   age: Number,
-  image: String,
+  image: {
+    type: String,
+    default:
+      "https://www.shareicon.net/data/2016/06/30/788946_people_512x512.png",
+  },
   rating: {
     pace: Number,
     dribbling: Number,

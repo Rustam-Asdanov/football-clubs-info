@@ -46,12 +46,12 @@ function sendData(event) {
   formDataObj["rating"] = ability_rate;
 
   console.log(formDataObj);
-  // if (myForm["submit"].value === "Save") {
-  //   newObject(formDataObj);
-  // } else if (myForm["submit"].value === "Modify") {
-  //   modifyObject(myForm["_id"].value, formDataObj);
-  // }
-  // fillTable(url);
+  if (myForm["submit"].value === "Save") {
+    newObject(formDataObj);
+  } else if (myForm["submit"].value === "Modify") {
+    modifyObject(myForm["_id"].value, formDataObj);
+  }
+  fillTable(url);
   myForm.reset();
   document.getElementsByClassName("ability-box")[0].classList.add("hide");
   return true;

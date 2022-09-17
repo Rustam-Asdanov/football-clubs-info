@@ -31,6 +31,10 @@ const addPlayer = async (req, res) => {
   const playerData = req.body;
   const club = playerData["club"];
 
+  if (playerData["image"] == "" || playerData["image"] == null) {
+    delete playerData["image"];
+  }
+
   if (playerData["_id"] != undefined) {
     delete playerData["_id"];
   }

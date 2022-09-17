@@ -26,12 +26,18 @@ function sendData(event) {
 fillTable(url);
 
 // it will give us previous 5 elements
-document
-  .getElementById("previous-obj-btn")
-  .addEventListener("click", () => fillTable("api/v1/team/teams/1"));
+let page = 1;
+const previous_btn = document.getElementById("previous-obj-btn");
+previous_btn.disabled = false;
+previous_btn.addEventListener("click", () => {
+  if (page != 1) {
+    fillTable(`api/v1/team/teams/${--page}`);
+  }
+  console.log(page);
+});
 
 // it will give us next 5 elements
 document.getElementById("next-obj-btn").addEventListener("click", () => {
-  console.log("next");
-  fillTable("api/v1/team/teams/2");
+  fillTable(`api/v1/team/teams/${++page}`);
+  console.log(page);
 });

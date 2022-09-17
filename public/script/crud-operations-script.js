@@ -11,11 +11,15 @@ function fillTable(myUrl) {
   fetch(url, { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
-      const tbody = document.getElementsByTagName("tbody")[0];
-      tbody.innerHTML = "";
+      if (data.length == 0) {
+        alert("Table is empty");
+      } else {
+        const tbody = document.getElementsByTagName("tbody")[0];
+        tbody.innerHTML = "";
 
-      for (let i in data) {
-        createRow(i, data[i], tbody);
+        for (let i in data) {
+          createRow(i, data[i], tbody);
+        }
       }
     })
     .catch((err) => {

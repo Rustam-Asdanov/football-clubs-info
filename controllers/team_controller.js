@@ -8,6 +8,9 @@ const {
 
 const getAllTeams = async (req, res) => {
   const page = req.params.page;
+  if (page < 1) {
+    page = 1;
+  }
   await getTeams(page)
     .then((result) => {
       res.status(200).json(result);

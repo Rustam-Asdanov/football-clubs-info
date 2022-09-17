@@ -1,5 +1,10 @@
 header {
   background-color: silver;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 header ul {
@@ -31,4 +36,11 @@ a {
   color: black;
   width: 100%;
   padding: 10px 15px;
+}
+
+@media only screen and (max-width: 800px) {
+  header ul li {
+    width: 100%;
+    font-size: 1.2rem;
+  }
 }

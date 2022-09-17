@@ -5,14 +5,12 @@ function setUrl(myUrl) {
 }
 
 function fillTable(myUrl) {
-  if (myUrl !== "") {
-    url = myUrl;
-  }
-  fetch(url, { method: "GET" })
+  fetch(myUrl == "" ? url : myUrl, { method: "GET" })
     .then((response) => response.json())
     .then((data) => {
       if (data.length == 0) {
         alert("Table is empty");
+        page--;
       } else {
         const tbody = document.getElementsByTagName("tbody")[0];
         tbody.innerHTML = "";

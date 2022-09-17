@@ -1,4 +1,5 @@
 const myForm = document.forms[0];
+let page = 1;
 
 myForm.addEventListener("submit", sendData);
 const formDataObj = {};
@@ -20,13 +21,14 @@ function sendData(event) {
     modifyObject(myForm["_id"].value, formDataObj);
   }
   fillTable(url);
+  page = 1;
+  myForm.reset();
   return false;
 }
 
 fillTable(url);
 
 // it will give us previous 5 elements
-let page = 1;
 const previous_btn = document.getElementById("previous-obj-btn");
 previous_btn.disabled = false;
 previous_btn.addEventListener("click", () => {

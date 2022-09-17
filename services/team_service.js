@@ -3,7 +3,7 @@ const Team = require("../models/Team");
 const getTeams = async (page) => {
   return await Team.find({})
     .skip((page - 1) * 5)
-    .limit(5);
+    .limit(6);
 };
 
 const getTeam = async (id) => {

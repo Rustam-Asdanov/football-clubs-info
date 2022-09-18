@@ -7,18 +7,20 @@
 body {
   /* background-image: linear-gradient(30deg, black, blue); */
   /* color: white; */
-  background-image: linear-gradient(30deg, yellow, crimson);
+  /* background-image: linear-gradient(30deg, yellow, crimson); */
+  background-color: #354f52;
+  color: #cad2c5;
 }
 
+/* Player add Form START */
 form {
-  width: 250px;
+  width: 350px;
   font-size: x-large;
   position: relative;
   top: 10px;
   left: 50%;
   transform: translate(-50%);
   margin: 20px;
-  color: white;
 }
 
 input,
@@ -26,44 +28,6 @@ select {
   font-size: 1.2rem;
   text-align: center;
   width: 100%;
-}
-
-table {
-  background-color: red;
-  width: 100%;
-  color: white;
-}
-
-table,
-td,
-tr,
-th {
-  border: 3px solid black;
-  border-collapse: collapse;
-  text-align: center;
-  font-size: 1.2rem;
-}
-
-button {
-  font-size: 1.2rem;
-  margin: 10px;
-  min-width: 70px;
-  width: 30%;
-  transition: 500ms all;
-  border: none;
-  border-radius: 30px;
-}
-
-button:hover {
-  box-shadow: 0 0 10px 10px black;
-}
-
-button.edit {
-  background-color: aqua;
-}
-
-button.delete {
-  background-color: crimson;
 }
 
 div.ability-box {
@@ -109,3 +73,87 @@ input[type="number"] {
 .hide {
   display: none;
 }
+
+/* Player add form END */
+
+/* Players table START */
+div.table {
+  margin: 0 auto;
+  width: 90%;
+  overflow-x: scroll;
+}
+div.table table {
+  background-color: #52796f;
+  width: 100%;
+}
+
+table,
+td,
+tr,
+th {
+  border: 2px solid black;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+}
+
+div.table button {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  width: 100px;
+  transition: 500ms all;
+  border: none;
+  border-radius: 30px;
+}
+
+div.table button:hover {
+  box-shadow: 0 0 5px 5px black;
+}
+
+div.table button.edit {
+  background-color: #84a98c;
+}
+
+div.table button.delete {
+  background-color: crimson;
+}
+
+div.table table tbody tr th {
+  width: 50px;
+}
+
+div.table thead th {
+  padding: 20px 0;
+}
+
+div.table tbody tr th,
+div.table tbody tr td {
+  padding: 0 15px;
+  text-align: center;
+}
+
+div.table tbody tr td {
+  text-align: left;
+}
+
+div.table td:nth-child(5),
+div.table td:nth-child(6) {
+  text-align: center;
+}
+
+div.table table td img {
+  border-radius: 20px;
+  width: 200px;
+}
+div.table ul {
+  margin: 10px;
+}
+
+div.table ul li {
+  margin-bottom: 10px;
+}
+
+div.table ul li span {
+  color: white;
+}
+
+/* Players table END */

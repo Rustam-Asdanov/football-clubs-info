@@ -36,6 +36,7 @@
         min="1"
         max="99"
         placeholder="10"
+        required
       />
       <label for="p-name">Full name</label>
       <input
@@ -43,6 +44,7 @@
         name="fullname"
         id="p-name"
         placeholder="Diego Maradona"
+        required
       />
       <label for="p-country">Country</label>
       <input
@@ -50,45 +52,140 @@
         name="country"
         id="p-country"
         placeholder="Argentina"
+        required
       />
-      <label for="p-club">Club</label>
 
-      <select name="club" id="">
+      <label for="p-club">Club</label>
+      <select name="club" id="p-club" required>
         <% teams.forEach((team)=>{ %>
         <option value="<%= team['name'] %>"><%= team['name'] %></option>
         <% });%>
       </select>
 
       <label for="p-position">Position</label>
-      <input type="text" name="position" id="p-position" placeholder="CF" />
+      <input
+        type="text"
+        name="position"
+        id="p-position"
+        placeholder="CF"
+        required
+      />
 
       <label for="p-age">Age</label>
-      <input type="text" name="age" id="p-age" placeholder="25" />
+      <input type="text" name="age" id="p-age" placeholder="25" required />
 
       <label for="p-image">Image Url</label>
-      <input type="url" name="image" id="p-image" placeholder="https://" />
+      <input
+        type="url"
+        name="image"
+        id="p-image"
+        placeholder="https://"
+        required
+      />
 
       <input type="reset" value="Reset" />
       <input type="submit" name="submit" value="Save" />
     </form>
     <hr />
-    <table>
-      <caption>
-        <h2>Player Base</h2>
-      </caption>
-      <thead>
-        <th>N</th>
-        <th>Full name</th>
-        <th>Country</th>
-        <th>Club</th>
-        <th>Age</th>
-        <th>Position</th>
-        <th>Number</th>
-        <th>Image</th>
-        <th>Operation</th>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <div class="table">
+      <table>
+        <caption>
+          <h2>Player Base</h2>
+        </caption>
+        <thead>
+          <th>N</th>
+          <th>General Info</th>
+          <th>Club Info</th>
+          <th>Ability Info</th>
+          <th>Image</th>
+          <th>Operation</th>
+        </thead>
+        <tbody>
+          <% for(let index in players){ %>
+          <tr>
+            <th><%= Number(index)+1%></th>
+            <td>
+              <ul>
+                <li>
+                  Full name:
+                  <span><%= players[index]["fullname"] %> </span>
+                </li>
+                <li>Country: <span><%= players[index]["country"]%></span></li>
+                <li>Age: <span><%= players[index]["age"]%></span></li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Club: <span> <%= players[index]["club"] %></span></li>
+                <li>
+                  Position: <span> <%= players[index]["position"] %></span>
+                </li>
+                <li>
+                  Number on t-shirt:
+                  <span> <%= players[index]["number"] %></span>
+                </li>
+              </ul>
+            </td>
+
+            <td>
+              <ul>
+                <li>
+                  Pace: <span> <%= players[index]["rating"]["pace"] %></span>
+                </li>
+                <li>
+                  Dribbling:
+                  <span> <%= players[index]["rating"]["dribbling"] %></span>
+                </li>
+                <li>
+                  Shooting:
+                  <span> <%= players[index]["rating"]["shooting"] %></span>
+                </li>
+                <li>
+                  Defending:
+                  <span> <%= players[index]["rating"]["defending"] %></span>
+                </li>
+                <li>
+                  Passing:
+                  <span> <%= players[index]["rating"]["passing"] %></span>
+                </li>
+                <li>
+                  Physical:
+                  <span> <%= players[index]["rating"]["physical"] %></span>
+                </li>
+                <li>
+                  Overall:
+                  <span> <%= players[index]["rating"]["overall"] %></span>
+                </li>
+              </ul>
+            </td>
+
+            <td>
+              <img
+                src="<%= players[index]['image'] %>"
+                alt="<%= players[index]['fullname'] %>"
+              />
+            </td>
+
+            <td>
+              <button
+                class="edit"
+                onclick="editObject('<%= players[index]._id %>')"
+              >
+                Edit
+              </button>
+
+              <button
+                class="delete"
+                onclick="deleteObject('<%= players[index]._id %>')"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+          <%}%>
+        </tbody>
+      </table>
+    </div>
 
     <div class="ability-box hide">
       <div>

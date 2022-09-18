@@ -27,6 +27,7 @@ function fillTable(myUrl) {
 }
 
 function createRow(counter, object, tbody) {
+  console.log(object);
   const tr = document.createElement("tr");
 
   headers.forEach((key) => {

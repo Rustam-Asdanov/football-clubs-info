@@ -34,24 +34,21 @@ function abilityData(event) {
 
   myFormData.forEach((value, key) => (formDataObj[key] = value));
 
-  console.log(formDataObj);
   document.getElementsByClassName("ability-box")[0].classList.remove("hide");
   return false;
 }
 
-// Thist function control save and modify methods
+// This function control save and modify methods
 function sendData(event) {
   event.preventDefault();
 
   formDataObj["rating"] = ability_rate;
 
-  console.log(formDataObj);
   if (myForm["submit"].value === "Save") {
     newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
     modifyObject(myForm["_id"].value, formDataObj);
   }
-  fillTable(url);
   myForm.reset();
   document.getElementsByClassName("ability-box")[0].classList.add("hide");
   return true;
@@ -85,5 +82,3 @@ function randomRatingGenerate() {
   ability_rate["overall"] = Math.round(overall_input / 6);
   document.getElementsByName("overall")[0].value = ability_rate["overall"];
 }
-
-fillTable(url);

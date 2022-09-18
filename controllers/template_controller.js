@@ -1,5 +1,7 @@
 const { getTeams, getTeam } = require("../services/team_service");
 
+const { getPlayers } = require("../services/player_service");
+
 const getMainPage = (req, res) => {
   res.render("index");
 };
@@ -11,7 +13,13 @@ const getPlayerForm = async (req, res) => {
       res.status(500).json(err);
     });
 
-  res.render("player-form", { teams: myTeams });
+  const myPlayers = await getPlayers()
+    .then((result) => result)
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+
+  res.render("player-form", { teams: myTeams, players: myPlayers });
 };
 
 const getTeamBase = async (req, res) => {

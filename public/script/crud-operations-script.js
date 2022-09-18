@@ -98,6 +98,13 @@ function editObject(id) {
       for (key in data) {
         console.log(key);
         if (key === "__v" || key === "players") continue;
+        if (key === "rating") {
+          ability_rate = data["rating"];
+          for (el in ability_rate) {
+            abilityForm[el].value = ability_rate[el];
+          }
+          continue;
+        }
         myForm[key].value = data[key];
       }
       myForm["submit"].value = "Modify";

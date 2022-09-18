@@ -6,14 +6,14 @@ abilityForm.addEventListener("submit", sendData);
 
 const formDataObj = {};
 
-const ability_rate = {
-  pace: 0,
-  dribbling: 0,
-  shooting: 0,
-  defending: 0,
-  passing: 0,
-  physical: 0,
-  overall: 0,
+let ability_rate = {
+  pace: 50,
+  dribbling: 50,
+  shooting: 50,
+  defending: 50,
+  passing: 50,
+  physical: 50,
+  overall: 50,
 };
 
 const headers = [
@@ -26,7 +26,7 @@ const headers = [
   "number",
   "image",
 ];
-setUrl("api/v1/player");
+setUrl("/api/v1/player");
 
 function abilityData(event) {
   event.preventDefault();
@@ -45,11 +45,12 @@ function sendData(event) {
   formDataObj["rating"] = ability_rate;
 
   if (myForm["submit"].value === "Save") {
+    console.log(formDataObj);
     newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
     modifyObject(myForm["_id"].value, formDataObj);
   }
-  myForm.reset();
+  // myForm.reset();
   document.getElementsByClassName("ability-box")[0].classList.add("hide");
   return true;
 }

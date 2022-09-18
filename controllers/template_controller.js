@@ -7,13 +7,17 @@ const getMainPage = (req, res) => {
 };
 
 const getPlayerForm = async (req, res) => {
-  const myTeams = await getTeams()
+  let page = req.params.page;
+  if (page == undefined) {
+    page = 0;
+  }
+  const myTeams = await getTeams("all_teams")
     .then((result) => result)
     .catch((err) => {
       res.status(500).json(err);
     });
 
-  const myPlayers = await getPlayers()
+  const myPlayers = await getPlayers(page)
     .then((result) => result)
     .catch((err) => {
       res.status(500).json(err);

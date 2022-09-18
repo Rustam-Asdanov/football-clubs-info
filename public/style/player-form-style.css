@@ -82,15 +82,17 @@ div.table {
   width: 90%;
   overflow-x: scroll;
 }
+
 div.table table {
   background-color: #52796f;
+  border-radius: 20px;
+  border-style: hidden;
   width: 100%;
 }
 
 table,
-td,
-tr,
-th {
+th,
+td {
   border: 2px solid black;
   border-collapse: collapse;
   font-size: 1.2rem;

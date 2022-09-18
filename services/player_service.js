@@ -1,6 +1,6 @@
 const Team = require("../models/Team");
 
-const getPlayers = async () => {
+const getPlayers = async (page) => {
   let player = new Array();
 
   await Team.find({}).then((result) => {
@@ -8,6 +8,8 @@ const getPlayers = async () => {
       player = player.concat(team.players);
     });
   });
+
+  player = player.splice(page, page + 6);
 
   return player;
 };

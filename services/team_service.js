@@ -1,9 +1,13 @@
 const Team = require("../models/Team");
 
 const getTeams = async (page) => {
-  return await Team.find({})
-    .skip((page - 1) * 5)
-    .limit(6);
+  if (page === "all_teams") {
+    return await Team.find({});
+  } else {
+    return await Team.find({})
+      .skip((page - 1) * 5)
+      .limit(6);
+  }
 };
 
 const getTeam = async (id) => {

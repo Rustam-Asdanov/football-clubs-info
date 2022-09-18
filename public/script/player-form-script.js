@@ -82,3 +82,41 @@ function randomRatingGenerate() {
   ability_rate["overall"] = Math.round(overall_input / 6);
   document.getElementsByName("overall")[0].value = ability_rate["overall"];
 }
+
+function toggleForm(btn) {
+  const formBox = document.getElementsByClassName("form")[0];
+  if (formBox.clientHeight > 0) {
+    formBox.style.height = "0px";
+    btn.src = "/img/plus.png";
+  } else {
+    formBox.style.height = "684px";
+    btn.src = "/img/minus.png";
+  }
+}
+
+let page = window.location.href.split("/").pop();
+if (page == "newPlayer") {
+  page = 0;
+}
+
+document.getElementById("previous-obj-btn").addEventListener("click", () => {
+  if (page > 0) {
+    window.open(`/newPlayer/${--page}`, "_self");
+  }
+});
+
+document.getElementById("next-obj-btn").addEventListener("click", async () => {
+  let message = "";
+  await fetch(`/newPlayer/${++page}`, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => (message = data.message))
+    .catch((err) => err);
+  if (!message) {
+    window.open(`/newPlayer/${page}`, "_self");
+  } else {
+    alert(message);
+    page--;
+  }
+});

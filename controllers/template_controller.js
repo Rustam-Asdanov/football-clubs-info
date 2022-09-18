@@ -11,6 +11,7 @@ const getPlayerForm = async (req, res) => {
   if (page == undefined) {
     page = 0;
   }
+
   const myTeams = await getTeams("all_teams")
     .then((result) => result)
     .catch((err) => {
@@ -23,7 +24,11 @@ const getPlayerForm = async (req, res) => {
       res.status(500).json(err);
     });
 
-  res.render("player-form", { teams: myTeams, players: myPlayers });
+  if (myPlayers.length == 0) {
+    res.status(404).json({ message: "There are no more players." });
+  } else {
+    res.render("player-form", { teams: myTeams, players: myPlayers });
+  }
 };
 
 const getTeamBase = async (req, res) => {

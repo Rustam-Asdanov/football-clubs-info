@@ -12,6 +12,7 @@ const {
 router.route("/").get(getMainPage);
 router.route("/main").get(getMainPage);
 router.route("/newPlayer").get(getPlayerForm);
+router.route("/newPlayer/:page").get(getPlayerForm);
 router.route("/base").get(getTeamBase);
 router.route("/base/:page").get(getTeamBase);
 router.route("/newTeam").get(getTeamForm);

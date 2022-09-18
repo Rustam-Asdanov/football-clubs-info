@@ -13,21 +13,28 @@ body {
 }
 
 /* Player add Form START */
-form {
-  width: 350px;
-  font-size: x-large;
-  position: relative;
-  top: 10px;
-  left: 50%;
-  transform: translate(-50%);
-  margin: 20px;
+div.form {
+  width: 90%;
+  height: 0px;
+  margin: 20px auto;
+  overflow: hidden;
+  border: 2px solid black;
+  border-bottom: none;
+  transition: 1000ms all;
 }
 
-input,
-select {
+div.form form {
+  width: 350px;
+  margin: 0 auto;
+}
+
+div.form form input,
+div.form form select {
   font-size: 1.2rem;
   text-align: center;
   width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0 15px;
 }
 
 div.ability-box {
@@ -76,11 +83,49 @@ input[type="number"] {
 
 /* Player add form END */
 
+/* Player  add form hide or show START */
+
+div.line {
+  margin: -20px auto;
+  width: 90%;
+  border-top: 2px solid black;
+  text-align: right;
+}
+
+div.line > input {
+  width: 50px;
+  margin: 0;
+  transition: 700ms all;
+}
+
+/* Player  add form hide or show END*/
+
 /* Players table START */
 div.table {
   margin: 0 auto;
   width: 90%;
   overflow-x: scroll;
+}
+
+div.table caption {
+  margin: 15px 0;
+}
+
+div.table caption div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+}
+
+div.table caption h2 {
+  display: inline-block;
+}
+
+div.table caption input[type="image"] {
+  width: 50px;
 }
 
 div.table table {

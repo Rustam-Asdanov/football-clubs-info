@@ -9,7 +9,7 @@ const getPlayers = async (page) => {
     });
   });
 
-  player = player.splice(page, page + 6);
+  player = player.splice(page * 6, (page + 1) * 6);
 
   return player;
 };

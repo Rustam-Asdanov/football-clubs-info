@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/style/navigation-bar-style.css" />
-    <link rel="stylesheet" href="style/player-form-style.css" />
+    <link rel="stylesheet" href="/style/player-form-style.css" />
   </head>
   <body>
     <header>
@@ -25,72 +25,86 @@
         </li>
       </ul>
     </header>
-    <form>
-      <h2>Player Form</h2>
-      <input type="hidden" name="_id" />
-      <label for="p-number">Number</label>
-      <input
-        type="number"
-        name="number"
-        id="p-number"
-        min="1"
-        max="99"
-        placeholder="10"
-        required
-      />
-      <label for="p-name">Full name</label>
-      <input
-        type="text"
-        name="fullname"
-        id="p-name"
-        placeholder="Diego Maradona"
-        required
-      />
-      <label for="p-country">Country</label>
-      <input
-        type="text"
-        name="country"
-        id="p-country"
-        placeholder="Argentina"
-        required
-      />
+    <div class="form">
+      <form>
+        <h2 style="margin: 10px 0">Player Form</h2>
 
-      <label for="p-club">Club</label>
-      <select name="club" id="p-club" required>
-        <% teams.forEach((team)=>{ %>
-        <option value="<%= team['name'] %>"><%= team['name'] %></option>
-        <% });%>
-      </select>
+        <input type="hidden" name="_id" />
+        <label for="p-number">Number</label>
+        <input
+          type="number"
+          name="number"
+          id="p-number"
+          min="1"
+          max="99"
+          placeholder="10"
+          required
+        />
+        <label for="p-name">Full name</label>
+        <input
+          type="text"
+          name="fullname"
+          id="p-name"
+          placeholder="Diego Maradona"
+          required
+        />
+        <label for="p-country">Country</label>
+        <input
+          type="text"
+          name="country"
+          id="p-country"
+          placeholder="Argentina"
+          required
+        />
 
-      <label for="p-position">Position</label>
-      <input
-        type="text"
-        name="position"
-        id="p-position"
-        placeholder="CF"
-        required
-      />
+        <label for="p-club">Club</label>
+        <select name="club" id="p-club" required>
+          <% teams.forEach((team)=>{ %>
+          <option value="<%= team['name'] %>"><%= team['name'] %></option>
+          <% });%>
+        </select>
 
-      <label for="p-age">Age</label>
-      <input type="text" name="age" id="p-age" placeholder="25" required />
+        <label for="p-position">Position</label>
+        <input
+          type="text"
+          name="position"
+          id="p-position"
+          placeholder="CF"
+          required
+        />
 
-      <label for="p-image">Image Url</label>
-      <input
-        type="url"
-        name="image"
-        id="p-image"
-        placeholder="https://"
-        required
-      />
+        <label for="p-age">Age</label>
+        <input type="text" name="age" id="p-age" placeholder="25" required />
 
-      <input type="reset" value="Reset" />
-      <input type="submit" name="submit" value="Save" />
-    </form>
-    <hr />
+        <label for="p-image">Image Url</label>
+        <input
+          type="url"
+          name="image"
+          id="p-image"
+          placeholder="https://"
+          required
+        />
+
+        <input type="reset" value="Reset" />
+        <input type="submit" name="submit" value="Save" />
+      </form>
+    </div>
+    <div class="line">
+      <input type="image" src="/img/plus.png" onclick="toggleForm(this)" />
+    </div>
     <div class="table">
       <table>
         <caption>
-          <h2 style="margin: 20px">Player Base</h2>
+          <div>
+            <input
+              type="image"
+              src="/img/back.png"
+              name=""
+              id="previous-obj-btn"
+            />
+            <h2>Player Base</h2>
+            <input type="image" src="/img/next.png" name="" id="next-obj-btn" />
+          </div>
         </caption>
         <thead>
           <th>N</th>
@@ -304,7 +318,7 @@
       </div>
     </div>
 
-    <script src="script/crud-operations-script.js"></script>
-    <script src="script/player-form-script.js"></script>
+    <script src="/script/crud-operations-script.js"></script>
+    <script src="/script/player-form-script.js"></script>
   </body>
 </html>

@@ -177,14 +177,14 @@
             <td>
               <button
                 class="edit"
-                onclick="editObject('<%= players[index]._id %>')"
+                onclick="editObject('<%= players[index]._id %>'); location.reload()"
               >
                 Edit
               </button>
 
               <button
                 class="delete"
-                onclick="deleteObject('<%= players[index]._id %>')"
+                onclick="deleteObject('<%= players[index]._id %>',true);"
               >
                 Delete
               </button>

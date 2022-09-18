@@ -142,12 +142,12 @@ function modifyObject(id, body) {
 }
 
 // this function delete player by id
-function deleteObject(id) {
+async function deleteObject(id, reload = false) {
   console.log(id);
   if (!confirm("Are you sure?")) {
     return;
   }
-  fetch(url + "/" + id, {
+  await fetch(url + "/" + id, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -166,5 +166,9 @@ function deleteObject(id) {
     .catch((err) => {
       console.log(err);
     });
-  fillTable(url);
+  if (reload) {
+    location.reload();
+  } else {
+    fillTable(url);
+  }
 }

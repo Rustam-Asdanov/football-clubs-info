@@ -1,5 +1,7 @@
-var page = window.location.href.split("/")[4];
-
+let page = window.location.href.split("/").pop();
+if (page == "base") {
+  page = 1;
+}
 document.getElementById("previous-obj-btn").addEventListener("click", () => {
   if (page > 1) {
     window.open(`/base/${--page}`, "_self");

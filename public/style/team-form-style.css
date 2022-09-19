@@ -31,7 +31,8 @@ section form {
   padding: 10px;
 }
 
-section form input[type="text"] {
+section form input[type="text"],
+input[type="url"] {
   box-shadow: 0 0 1px 1px;
 }
 

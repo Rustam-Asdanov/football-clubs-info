@@ -39,7 +39,7 @@ section div.card {
   text-align: center;
   min-width: 200px;
   width: 25%;
-  min-height: 300px;
+  height: 400px;
   margin: 20px;
 }
 
@@ -57,7 +57,12 @@ section .card a:hover {
   border-color: silver;
 }
 
-section img {
+section div.card img {
+  width: 60%;
+  height: 200px;
+}
+
+section div.controll img {
   width: 80%;
 }
 
@@ -77,5 +82,14 @@ section h4 {
     width: 100%;
     font-size: 1.2rem;
     text-align: center;
+  }
+
+  section div.card {
+    height: 350px;
+  }
+
+  section div.card img {
+    width: 80%;
+    height: 50%;
   }
 }

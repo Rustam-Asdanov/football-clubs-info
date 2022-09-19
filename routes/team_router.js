@@ -1,5 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+
+// SET STORAGE
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const {
   getAllTeams,
@@ -7,6 +20,7 @@ const {
   createTeam,
   deleteTeamById,
   updateTeamById,
+  uploadTeamImage,
 } = require("../controllers/team_controller");
 
 router
@@ -20,5 +34,7 @@ router
 router.route("/teams/:page").get(getAllTeams);
 
 router.route("/:id").get(getTeamById).delete(deleteTeamById);
+
+router.route("/file").post(uploadTeamImage);
 
 module.exports = router;

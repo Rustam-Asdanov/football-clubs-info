@@ -7,6 +7,18 @@ const team_router = require("./routes/team_router");
 const notFound = require("./middleware/not-found");
 const port = 3000;
 
+// body-parser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// fileupload
+const fileUpload = require("express-fileupload");
+app.use(
+  fileUpload({
+    createParentPath: true,
+  })
+);
+
 // configuration
 require("dotenv").config();
 app.use(express.json());

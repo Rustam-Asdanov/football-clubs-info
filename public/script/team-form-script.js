@@ -15,11 +15,13 @@ function sendData(event) {
     formDataObj[key] = value;
   });
 
-  if (myForm["submit"].value === "Save") {
-    newObject(formDataObj);
-  } else if (myForm["submit"].value === "Modify") {
-    modifyObject(myForm["_id"].value, formDataObj);
-  }
+  saveLogo();
+
+  // if (myForm["submit"].value === "Save") {
+  //   newObject(formDataObj);
+  // } else if (myForm["submit"].value === "Modify") {
+  //   modifyObject(myForm["_id"].value, formDataObj);
+  // }
   fillTable(url);
   page = 1;
   myForm.reset();
@@ -43,3 +45,23 @@ document.getElementById("next-obj-btn").addEventListener("click", () => {
   fillTable(`api/v1/team/teams/${++page}`);
   console.log(page);
 });
+
+function saveLogo() {
+  const myImageData = new FormData();
+  const fileField = document.querySelector("input[type='file']");
+
+  myImageData.append("name", "Sam");
+  myImageData.append("myImage", fileField.files[0]);
+
+  fetch("api/v1/team/file", {
+    method: "POST",
+    body: myImageData,
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Success: " + result);
+    })
+    .catch((err) => {
+      console.log("Error: " + err);
+    });
+}

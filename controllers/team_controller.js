@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const {
   getTeams,
   getTeam,
@@ -89,10 +92,21 @@ const updateTeamById = async (req, res) => {
     });
 };
 
+const uploadTeamImage = async (req, res) => {
+  const image = req.files.myImage;
+  const filename = req.body.name;
+  const directory = path.join(__dirname, "..", "/public/images/");
+
+  image.mv(directory + filename + "." + image.name.split(".")[1]);
+
+  console.log(image.path);
+};
+
 module.exports = {
   getAllTeams,
   getTeamById,
   createTeam,
   deleteTeamById,
   updateTeamById,
+  uploadTeamImage,
 };

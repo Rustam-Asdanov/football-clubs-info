@@ -7,6 +7,7 @@ const {
   createTeam,
   deleteTeamById,
   updateTeamById,
+  uploadLogo,
 } = require("../controllers/team_controller");
 
 router
@@ -20,5 +21,7 @@ router
 router.route("/teams/:page").get(getAllTeams);
 
 router.route("/:id").get(getTeamById).delete(deleteTeamById);
+
+router.route("/file").post(uploadLogo);
 
 module.exports = router;

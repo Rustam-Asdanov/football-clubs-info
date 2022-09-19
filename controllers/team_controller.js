@@ -1,3 +1,5 @@
+const path = require("path");
+
 const {
   getTeams,
   getTeam,
@@ -89,10 +91,24 @@ const updateTeamById = async (req, res) => {
     });
 };
 
+const uploadLogo = (req, res) => {
+  const logo = req.files.myLogo;
+  if (logo == undefined || logo == "" || logo == null) {
+    res.status(500).json({ message: "load the image" });
+  } else {
+    const logoName = req.body.logoName;
+    const directory = path.join(__dirname, "..", "/public/team_logos/");
+
+    logo.mv(directory + logoName);
+    res.status(200).json({ message: "logo saved successfully" });
+  }
+};
+
 module.exports = {
   getAllTeams,
   getTeamById,
   createTeam,
   deleteTeamById,
   updateTeamById,
+  uploadLogo,
 };

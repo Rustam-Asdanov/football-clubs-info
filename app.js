@@ -5,6 +5,8 @@ const player_router = require("./routes/player_router");
 const template_router = require("./routes/template_router");
 const team_router = require("./routes/team_router");
 const notFound = require("./middleware/not-found");
+const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 const port = 3000;
 
 // configuration
@@ -12,6 +14,8 @@ require("dotenv").config();
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload({ createParentPath: true }));
 
 // routes
 app.use("/", template_router);

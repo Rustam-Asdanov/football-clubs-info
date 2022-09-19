@@ -15,6 +15,13 @@ function sendData(event) {
     formDataObj[key] = value;
   });
 
+  formDataObj["logo"] =
+    formDataObj["name"].split(" ").join("-").toLocaleLowerCase() +
+    "." +
+    formDataObj["logo"]["name"].split(".")[1];
+
+  logoSave(formDataObj["logo"]);
+
   if (myForm["submit"].value === "Save") {
     newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
@@ -43,3 +50,23 @@ document.getElementById("next-obj-btn").addEventListener("click", () => {
   fillTable(`api/v1/team/teams/${++page}`);
   console.log(page);
 });
+
+function logoSave(logoName) {
+  const myImageData = new FormData();
+  const imageField = document.querySelector("input[type='file']");
+
+  myImageData.append("logoName", logoName);
+  myImageData.append("myLogo", imageField.files[0]);
+
+  fetch("api/v1/team/file", {
+    method: "POST",
+    body: myImageData,
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

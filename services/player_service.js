@@ -27,6 +27,7 @@ const getSomePlayer = async (id) => {
 
       const player = players.filter((x) => x._id == id)[0];
       player["club"] = team;
+      console.log(player);
       return player;
     })
     .catch((err) => err);

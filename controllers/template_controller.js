@@ -1,6 +1,6 @@
 const { getTeams, getTeam } = require("../services/team_service");
 
-const { getPlayers } = require("../services/player_service");
+const { getPlayers, getSomePlayer } = require("../services/player_service");
 
 const getMainPage = (req, res) => {
   res.render("index");
@@ -67,10 +67,34 @@ const getTeamInfo = async (req, res) => {
   res.render("team-info", { team: myTeam });
 };
 
+const getPlayerPageByName = async (req, res) => {
+  const playerId = req.params.playerId;
+  if (playerId === 0 || playerId === "") {
+    res.status(400).json({ message: "Please select player." });
+  }
+
+  const myTeams = await getTeams("all_teams")
+    .then((result) => result)
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+
+  const myPlayer = await getSomePlayer(playerId)
+    .then((result) => result)
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+
+  console.log("player" + myPlayer);
+
+  res.render("player-form", { teams: myTeams, players: myPlayer });
+};
+
 module.exports = {
   getMainPage,
   getPlayerForm,
   getTeamBase,
   getTeamForm,
   getTeamInfo,
+  getPlayerPageByName,
 };

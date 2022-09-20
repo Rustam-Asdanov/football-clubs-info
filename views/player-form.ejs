@@ -91,11 +91,12 @@
         <caption>
           <div>
             <input
-              type="image"
-              src="/img/back.png"
-              name=""
-              id="previous-obj-btn"
+              type="text"
+              name="player_name"
+              placeholder="search.."
+              onkeyup="searchPlayer(this.value)"
             />
+            <input type="image" src="/img/back.png" id="previous-obj-btn" />
             <h2>Player Base</h2>
             <input type="image" src="/img/next.png" name="" id="next-obj-btn" />
           </div>

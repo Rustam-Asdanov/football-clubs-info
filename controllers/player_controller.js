@@ -5,6 +5,7 @@ const {
   deletePlayer,
   updatePlayer,
   checkForExists,
+  findPlayerByName,
 } = require("../services/player_service");
 
 const getAllPlayers = async (req, res) => {
@@ -101,10 +102,27 @@ const updatePlayerById = async (req, res) => {
     });
 };
 
+const searchPlayer = async (req, res) => {
+  const playerName = req.params.playerName;
+  console.log(playerName);
+  await findPlayerByName(playerName)
+    .then((result) => {
+      if (!result) {
+        res.status(404).json({ message: `No task with id: ${taskID}` });
+      } else {
+        res.status(200).json(result);
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+};
+
 module.exports = {
   getAllPlayers,
   getPlayerById,
   addPlayer,
   deletePlayerById,
   updatePlayerById,
+  searchPlayer,
 };

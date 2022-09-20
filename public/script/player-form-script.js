@@ -121,3 +121,19 @@ document.getElementById("next-obj-btn").addEventListener("click", async () => {
     page--;
   }
 });
+
+// search box
+async function searchPlayer(playerName) {
+  if (playerName == "") return;
+
+  await fetch("/api/v1/player/search/" + playerName, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

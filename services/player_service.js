@@ -84,6 +84,10 @@ const checkForExists = async (body) => {
   });
 };
 
+const findPlayerByName = async (name) => {
+  return "Roberto";
+};
+
 module.exports = {
   getPlayers,
   getSomePlayer,
@@ -91,4 +95,5 @@ module.exports = {
   deletePlayer,
   updatePlayer,
   checkForExists,
+  findPlayerByName,
 };

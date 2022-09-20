@@ -5,11 +5,9 @@
 }
 
 body {
-  /* background-image: linear-gradient(30deg, black, blue); */
-  /* color: white; */
-  /* background-image: linear-gradient(30deg, yellow, crimson); */
   background-color: #354f52;
   color: #cad2c5;
+  padding-bottom: 50px;
 }
 
 /* Player add Form START */
@@ -102,10 +100,12 @@ div.line > input {
 
 /* Players table START */
 div.table {
-  margin: 0 auto;
+  margin: 50px auto;
   width: 90%;
   overflow-x: scroll;
 }
+
+/* Caption box START -search pagination */
 
 div.table caption {
   margin: 15px 0;
@@ -116,8 +116,9 @@ div.table caption div {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
+  padding-right: 30%;
 }
 
 div.table caption h2 {
@@ -127,6 +128,15 @@ div.table caption h2 {
 div.table caption input[type="image"] {
   width: 50px;
 }
+
+div.table caption div input[type="text"] {
+  height: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+
+/* Caption box END -search pagination */
 
 div.table table {
   background-color: #52796f;

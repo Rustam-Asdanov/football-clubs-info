@@ -88,15 +88,13 @@ function newObject(body) {
 
 // this function prepare form to editing player
 function editObject(id) {
-  console.log("eeee");
   fetch(url + "/" + id, {
     method: "GET",
   })
     .then((response) => response.json())
     .then((data) => {
       for (key in data) {
-        console.log(key);
-        if (key === "__v" || key === "players") continue;
+        if (key === "__v" || key === "players" || key === "logo") continue;
         if (key === "rating") {
           ability_rate = data["rating"];
           for (el in ability_rate) {

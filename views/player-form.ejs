@@ -25,6 +25,7 @@
         </li>
       </ul>
     </header>
+
     <div class="form">
       <form>
         <h2 style="margin: 10px 0">Player Form</h2>
@@ -59,9 +60,9 @@
 
         <label for="p-club">Club</label>
         <select name="club" id="p-club" required>
-          <% teams.forEach((team)=>{ %>
+          <% if(teams.length > 0){ teams.forEach((team)=>{ %>
           <option value="<%= team['name'] %>"><%= team['name'] %></option>
-          <% }); %>
+          <% }); }%>
         </select>
 
         <label for="p-position">Position</label>
@@ -84,7 +85,12 @@
       </form>
     </div>
     <div class="line">
-      <input type="image" src="/img/plus.png" onclick="toggleForm(this)" />
+      <input
+        type="image"
+        src="/img/plus.png"
+        onclick="toggleForm(this)"
+        id="toggle-form"
+      />
     </div>
     <div class="table">
       <table>
@@ -178,7 +184,7 @@
             <td>
               <button
                 class="edit"
-                onclick="editObject('<%= players[index]._id %>'); location.reload()"
+                onclick="editPlayer('<%= players[index]._id %>');"
               >
                 Edit
               </button>

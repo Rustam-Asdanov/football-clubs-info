@@ -45,14 +45,15 @@ function sendData(event) {
   formDataObj["rating"] = ability_rate;
 
   if (myForm["submit"].value === "Save") {
-    console.log(formDataObj);
     newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
     modifyObject(myForm["_id"].value, formDataObj);
+    document.getElementById("p-club").removeAttribute("disabled");
   }
-  // myForm.reset();
+  myForm.reset();
   document.getElementsByClassName("ability-box")[0].classList.add("hide");
-  return true;
+  location.reload();
+  return false;
 }
 
 document
@@ -141,6 +142,8 @@ async function searchPlayer(search_input) {
     });
 }
 
+// This method find players by typing letters and
+// create list by response result
 function createPlayerNameOptions(myInput, result) {
   const player_name_options = document.createElement("div");
   player_name_options.classList.add("player-options");
@@ -155,4 +158,10 @@ function createPlayerNameOptions(myInput, result) {
   }
 
   myInput.parentNode.appendChild(player_name_options);
+}
+
+function editPlayer(id) {
+  document.getElementById("p-club").setAttribute("disabled", "");
+  document.getElementById("toggle-form").click();
+  editObject(id);
 }

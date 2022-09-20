@@ -85,9 +85,14 @@ const getPlayerPageByName = async (req, res) => {
       res.status(500).json(err);
     });
 
-  console.log("player" + myPlayer);
-
-  res.render("player-form", { teams: myTeams, players: myPlayer });
+  if (myPlayer == "not found") {
+    res.redirect("/newPlayer");
+  } else {
+    res.render("player-form", {
+      teams: new Array(),
+      players: new Array(myPlayer),
+    });
+  }
 };
 
 module.exports = {

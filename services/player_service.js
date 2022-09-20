@@ -22,6 +22,7 @@ const getPlayers = async (page) => {
 const getSomePlayer = async (id) => {
   return await Team.find({ "players._id": id })
     .then((result) => {
+      if (result == "") return "not found";
       const team = result[0].name;
       const players = result[0].players;
 

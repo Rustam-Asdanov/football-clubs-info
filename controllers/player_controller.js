@@ -104,16 +104,27 @@ const updatePlayerById = async (req, res) => {
 
 const searchPlayer = async (req, res) => {
   const playerName = req.params.playerName;
-  console.log(playerName);
   await findPlayerByName(playerName)
     .then((result) => {
-      if (!result) {
-        res.status(404).json({ message: `No task with id: ${taskID}` });
+      console.log(result);
+      if (!result || result.length == 0) {
+        res.status(404).json({ message: `No task with id: ${playerName}` });
       } else {
-        res.status(200).json(result);
+        return result[0]["players"];
+        // res.status(200).json(result);
       }
     })
+    .then((data) => {
+      const players = new Array();
+      for (let elem of data) {
+        if (elem.fullname.startsWith(playerName)) {
+          players.push(elem);
+        }
+      }
+      res.status(200).json(players);
+    })
     .catch((err) => {
+      console.log(err);
       res.status(500).json(err);
     });
 };

@@ -85,7 +85,18 @@ const checkForExists = async (body) => {
 };
 
 const findPlayerByName = async (name) => {
-  return "Roberto";
+  return await Team.find(
+    {
+      "players.fullname": {
+        $regex: name,
+        $options: "ism",
+      },
+    },
+    {
+      "players._id": 1,
+      "players.fullname": 1,
+    }
+  );
 };
 
 module.exports = {

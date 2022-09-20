@@ -109,6 +109,7 @@ div.table {
 
 div.table caption {
   margin: 15px 0;
+  position: relative;
 }
 
 div.table caption div {
@@ -132,8 +133,33 @@ div.table caption input[type="image"] {
 div.table caption div input[type="text"] {
   height: 30px;
   text-align: center;
+  width: 300px;
   font-size: 1.2rem;
   border-radius: 10px;
+}
+
+div.table caption div.player-options {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 300px;
+  background-color: whitesmoke;
+  padding: 0;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border-radius: 10px;
+}
+
+div.table caption div div.player-options > button {
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px 0;
+  border-radius: 0;
+  transform: none;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 /* Caption box END -search pagination */

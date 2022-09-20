@@ -106,25 +106,24 @@ const searchPlayer = async (req, res) => {
   const playerName = req.params.playerName;
   await findPlayerByName(playerName)
     .then((result) => {
-      console.log(result);
       if (!result || result.length == 0) {
         res.status(404).json({ message: `No task with id: ${playerName}` });
       } else {
         return result[0]["players"];
-        // res.status(200).json(result);
       }
     })
     .then((data) => {
-      const players = new Array();
-      for (let elem of data) {
-        if (elem.fullname.startsWith(playerName)) {
-          players.push(elem);
+      if (data != undefined) {
+        const players = new Array();
+        for (let elem of data) {
+          if (elem.fullname.startsWith(playerName)) {
+            players.push(elem);
+          }
         }
+        res.status(200).json(players);
       }
-      res.status(200).json(players);
     })
     .catch((err) => {
-      console.log(err);
       res.status(500).json(err);
     });
 };

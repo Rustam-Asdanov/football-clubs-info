@@ -123,17 +123,36 @@ document.getElementById("next-obj-btn").addEventListener("click", async () => {
 });
 
 // search box
-async function searchPlayer(playerName) {
-  if (playerName == "") return;
+async function searchPlayer(search_input) {
+  const player_options = document.querySelector("div.player-options");
+  if (player_options != null) player_options.remove();
+  if (search_input.value == "") return;
 
-  await fetch("/api/v1/player/search/" + playerName, {
+  await fetch("/api/v1/player/search/" + search_input.value, {
     method: "GET",
   })
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
+      createPlayerNameOptions(search_input, result);
     })
     .catch((err) => {
       console.log(err);
     });
+}
+
+function createPlayerNameOptions(myInput, result) {
+  const player_name_options = document.createElement("div");
+  player_name_options.classList.add("player-options");
+
+  for (let elem of result) {
+    const myButton = document.createElement("button");
+    myButton.addEventListener("click", () =>
+      window.open("/newPlayer/search/" + elem["_id"])
+    );
+    myButton.textContent = elem["fullname"];
+    player_name_options.appendChild(myButton);
+  }
+
+  myInput.parentNode.appendChild(player_name_options);
 }

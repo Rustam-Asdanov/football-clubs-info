@@ -90,8 +90,8 @@ const findPlayerByName = async (name) => {
   return await Team.find(
     {
       "players.fullname": {
-        $regex: name,
-        $options: "ism",
+        $regex: `^${name}`,
+        $options: "i",
       },
     },
     {

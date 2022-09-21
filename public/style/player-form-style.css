@@ -239,4 +239,18 @@ div.table ul li span {
   color: white;
 }
 
+div.ability-box > div {
+  background-color: #84a98c;
+}
+
+div.ability-box caption {
+  margin-bottom: 10px;
+}
+
+div.ability-box table input {
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 /* Players table END */

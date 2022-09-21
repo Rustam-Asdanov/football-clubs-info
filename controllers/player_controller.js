@@ -103,7 +103,8 @@ const updatePlayerById = async (req, res) => {
 };
 
 const searchPlayer = async (req, res) => {
-  const playerName = req.params.playerName;
+  let playerName = req.params.playerName;
+  playerName = playerName.charAt(0).toUpperCase() + playerName.slice(1);
   await findPlayerByName(playerName)
     .then((result) => {
       if (!result || result.length == 0) {

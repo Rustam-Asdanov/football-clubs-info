@@ -13,3 +13,7 @@ document.getElementsByClassName("control")[1].addEventListener("click", () => {
 document.getElementsByClassName("control")[2].addEventListener("click", () => {
   openPage("base");
 });
+
+document.getElementsByClassName("control")[3].addEventListener("click", () => {
+  openPage("transfer");
+});

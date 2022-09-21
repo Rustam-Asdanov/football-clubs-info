@@ -97,6 +97,7 @@ const findPlayerByName = async (name) => {
     {
       "players._id": 1,
       "players.fullname": 1,
+      "players.image": 1,
     }
   );
 };

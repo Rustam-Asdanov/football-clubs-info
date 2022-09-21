@@ -1,6 +1,6 @@
 const search_result = document.getElementById("search-result");
 
-async function createPlayerCard(player_name) {
+async function searchPlayer(player_name) {
   const player_options = document.querySelector("div#search-result");
   if (player_name.value == "") player_options.classList.add("hide");
   if (player_name.value == "") return;
@@ -31,11 +31,25 @@ function createSearchResult(result) {
     button.textContent = data["fullname"];
 
     button.addEventListener("click", () => {
-      createTeamCard(data["_id"]);
+      createPlayerCard(data);
     });
 
     search_result.appendChild(button);
   }
+}
+
+function createPlayerCard(player) {
+  console.log(player);
+
+  const player_box = document.getElementById("player");
+
+  player_box.children[0].value = player["_id"];
+  player_box.children[1].textContent = player["fullname"];
+  player_box.children[2].alt = player["fullname"];
+  player_box.children[2].src = player["image"];
+
+  document.getElementById("player-name").value = "";
+  document.querySelector("div#search-result").classList.add("hide");
 }
 
 function createTeamCard(team_name) {

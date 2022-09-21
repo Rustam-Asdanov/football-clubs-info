@@ -12,18 +12,16 @@
 
     <section>
       <div>
-        <input type="hidden" name="_id" />
         <input
           type="text"
-          list="players"
-          onkeyup="createPlayerCard(this)"
+          id="player-name"
+          onkeyup="searchPlayer(this)"
           placeholder="search"
         />
-        <div id="search-result" class="hide">
-          <!-- <button onclick="createTeamCard(this)" value="ss">Halland</button>
-          <button onclick="createTeamCard(this)" value="ss">Halland</button> -->
-        </div>
+        <div id="search-result" class="hide"></div>
         <div id="player">
+          <input type="hidden" name="player_id" />
+
           <h2>Player Name</h2>
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/football-player-1426973-1208513.png"

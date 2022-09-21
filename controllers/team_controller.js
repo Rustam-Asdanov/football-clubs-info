@@ -1,4 +1,5 @@
 const path = require("path");
+const { capitalize } = require("../extra_tools/extra-functions");
 
 const {
   getTeams,

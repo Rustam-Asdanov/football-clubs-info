@@ -8,6 +8,8 @@ const {
   findPlayerByName,
 } = require("../services/player_service");
 
+const { capitalize } = require("../extra_tools/extra-functions");
+
 const getAllPlayers = async (req, res) => {
   await getPlayers()
     .then((result) => {
@@ -31,6 +33,8 @@ const getPlayerById = async (req, res) => {
 const addPlayer = async (req, res) => {
   const playerData = req.body;
   const club = playerData["club"];
+
+  playerData["fullname"] = capitalize(playerData["fullname"]);
 
   if (playerData["image"] == "" || playerData["image"] == null) {
     delete playerData["image"];
@@ -104,7 +108,7 @@ const updatePlayerById = async (req, res) => {
 
 const searchPlayer = async (req, res) => {
   let playerName = req.params.playerName;
-  playerName = playerName.charAt(0).toUpperCase() + playerName.slice(1);
+  playerName = capitalize(playerName);
   await findPlayerByName(playerName)
     .then((result) => {
       if (!result || result.length == 0) {

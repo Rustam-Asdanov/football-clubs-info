@@ -13,7 +13,16 @@
     <section>
       <div>
         <input type="hidden" name="_id" />
-        <input type="text" name="" id="" placeholder="search" />
+        <input
+          type="text"
+          list="players"
+          onkeyup="createPlayerCard(this)"
+          placeholder="search"
+        />
+        <div id="search-result" class="hide">
+          <!-- <button onclick="createTeamCard(this)" value="ss">Halland</button>
+          <button onclick="createTeamCard(this)" value="ss">Halland</button> -->
+        </div>
         <div id="player">
           <h2>Player Name</h2>
           <img
@@ -28,8 +37,9 @@
         alt=""
       />
       <div>
-        <select name="" id="">
-          <option value="">Man</option>
+        <select onchange="createTeamCard(this.value)">
+          <option selected disabled>Select team</option>
+          <option value="man">Man</option>
         </select>
         <div class="team">
           <h2>Team Name</h2>
@@ -40,5 +50,6 @@
         </div>
       </div>
     </section>
+    <script src="/script/player-transfer-script.js"></script>
   </body>
 </html>

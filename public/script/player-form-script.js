@@ -134,7 +134,9 @@ async function searchPlayer(search_input) {
   })
     .then((response) => response.json())
     .then((result) => {
-      createPlayerNameOptions(search_input, result);
+      if (result.length > 0) {
+        createPlayerNameOptions(search_input, result);
+      }
     })
     .catch((err) => {
       console.log(err);

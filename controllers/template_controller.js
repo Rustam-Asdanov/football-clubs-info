@@ -95,6 +95,10 @@ const getPlayerPageByName = async (req, res) => {
   }
 };
 
+const getPlayerTransferPage = async (req, res) => {
+  res.render("player-transfer");
+};
+
 module.exports = {
   getMainPage,
   getPlayerForm,
@@ -102,4 +106,5 @@ module.exports = {
   getTeamForm,
   getTeamInfo,
   getPlayerPageByName,
+  getPlayerTransferPage,
 };

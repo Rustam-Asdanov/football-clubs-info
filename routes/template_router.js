@@ -8,6 +8,7 @@ const {
   getTeamForm,
   getTeamInfo,
   getPlayerPageByName,
+  getPlayerTransferPage,
 } = require("../controllers/template_controller");
 
 router.route("/").get(getMainPage);
@@ -22,5 +23,7 @@ router.route("/base/:page").get(getTeamBase);
 router.route("/moreInfo/:id").get(getTeamInfo);
 
 router.route("/newTeam").get(getTeamForm);
+
+router.route("/transfer").get(getPlayerTransferPage);
 
 module.exports = router;

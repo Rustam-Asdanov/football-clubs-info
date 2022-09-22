@@ -1,6 +1,6 @@
 const Team = require("../models/Team");
 
-const getPlayers = async (page) => {
+const getPlayers = async (page = 1) => {
   let player = new Array();
 
   await Team.find({}).then((result) => {
@@ -28,7 +28,6 @@ const getSomePlayer = async (id) => {
 
       const player = players.filter((x) => x._id == id)[0];
       player["club"] = team;
-      console.log(player);
       return player;
     })
     .catch((err) => err);
@@ -43,13 +42,16 @@ const getSomePlayer = async (id) => {
 */
 
 const createPlayer = async (club_name, player) => {
+  delete player["_id"];
   const team = await Team.findOne({ name: club_name });
   team.players.push(player);
+  console.log(team);
   return await team.save();
 };
 
 // this method delete player by id
 const deletePlayer = async (id) => {
+  console.log(id);
   return await Team.updateOne(
     { "players._id": id },
     {
@@ -102,6 +104,15 @@ const findPlayerByName = async (name) => {
   );
 };
 
+const changePlayerTeam = async (player_id, team_name) => {
+  let myPlayer = await getSomePlayer(player_id);
+  console.log(delete myPlayer._id);
+  console.log(myPlayer);
+  // await deletePlayer(player_id);
+  // player["club"] = team_name;
+  // return createPlayer(team_name, player);
+};
+
 module.exports = {
   getPlayers,
   getSomePlayer,
@@ -110,4 +121,5 @@ module.exports = {
   updatePlayer,
   checkForExists,
   findPlayerByName,
+  changePlayerTeam,
 };

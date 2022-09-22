@@ -6,6 +6,7 @@ const {
   updatePlayer,
   checkForExists,
   findPlayerByName,
+  changePlayerTeam,
 } = require("../services/player_service");
 
 const { capitalize } = require("../extra_tools/extra-functions");
@@ -133,6 +134,23 @@ const searchPlayer = async (req, res) => {
     });
 };
 
+const transferPlayer = async (req, res) => {
+  const player_id = req.body.playerId;
+  const team_name = req.body.teamName;
+
+  console.log(player_id, team_name);
+
+  await changePlayerTeam(player_id, team_name)
+    .then((response) => {
+      console.log("ss" + response);
+      res.status(200).json({ message: "Success" });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json({ message: "Some problems" });
+    });
+};
+
 module.exports = {
   getAllPlayers,
   getPlayerById,
@@ -140,4 +158,5 @@ module.exports = {
   deletePlayerById,
   updatePlayerById,
   searchPlayer,
+  transferPlayer,
 };

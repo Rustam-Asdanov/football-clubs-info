@@ -68,17 +68,35 @@ async function searchTeam(team_id) {
 // method create team card
 function createTeamCard(team) {
   console.log(team);
-  team_box.children[0].textContent = team["name"];
-  team_box.children[1].alt = team["name"];
-  team_box.children[1].src = "/team_logos/" + team["name"];
-  team_box.children[1].onerror = () => {
-    team_box.children[1].src =
+  team_box.children[0].value = team["name"];
+  team_box.children[1].textContent = team["name"];
+  team_box.children[2].alt = team["name"];
+  team_box.children[2].src = "/team_logos/" + team["name"];
+  team_box.children[2].onerror = () => {
+    team_box.children[2].src =
       "https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg";
   };
 }
 
-document.getElementById("transfer-btn").addEventListener("click", () => {
+document.getElementById("transfer-btn").addEventListener("click", async () => {
   const player_id = document.getElementsByName("player_id")[0].value;
-  const team_id = document.getElementsByName("team_id")[0].value;
-  console.log("Player: " + player_id + "\n Team: " + team_id);
+  const team_name = document.getElementsByName("team_name")[0].value;
+
+  await fetch("/api/v1/player/transfer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      playerId: player_id,
+      teamName: team_name,
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });

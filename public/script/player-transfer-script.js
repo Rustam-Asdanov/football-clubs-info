@@ -1,5 +1,8 @@
 const search_result = document.getElementById("search-result");
+const player_box = document.getElementById("player");
+const team_box = document.getElementById("team");
 
+// meathod search player in base
 async function searchPlayer(player_name) {
   const player_options = document.querySelector("div#search-result");
   if (player_name.value == "") player_options.classList.add("hide");
@@ -23,6 +26,7 @@ async function searchPlayer(player_name) {
     });
 }
 
+// method create player options by given name
 function createSearchResult(result) {
   search_result.innerHTML = "";
 
@@ -38,11 +42,8 @@ function createSearchResult(result) {
   }
 }
 
+// method create player card
 function createPlayerCard(player) {
-  console.log(player);
-
-  const player_box = document.getElementById("player");
-
   player_box.children[0].value = player["_id"];
   player_box.children[1].textContent = player["fullname"];
   player_box.children[2].alt = player["fullname"];
@@ -52,6 +53,26 @@ function createPlayerCard(player) {
   document.querySelector("div#search-result").classList.add("hide");
 }
 
-function searchTeam(team_name) {
-  console.log(team_name);
+// method search team in database
+async function searchTeam(team_id) {
+  await fetch(`/api/v1/team/${team_id}?full=false`, {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      createTeamCard(result[0]);
+    })
+    .catch((err) => console.log(err));
+}
+
+// method create team card
+function createTeamCard(team) {
+  console.log(team);
+  team_box.children[0].textContent = team["name"];
+  team_box.children[1].alt = team["name"];
+  team_box.children[1].src = "/team_logos/" + team["name"];
+  team_box.children[1].onerror = () => {
+    team_box.children[1].src =
+      "https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg";
+  };
 }

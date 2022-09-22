@@ -13,7 +13,6 @@ const getTeams = async (page, full = "true") => {
 };
 
 const getTeam = async (id, full = "true") => {
-  console.log(full);
   if (full === "true") {
     return await Team.findById(id);
   } else {

@@ -35,13 +35,13 @@
         alt=""
       />
       <div>
-        <select onchange="searchTeam(this.value)">
+        <select name="team_id" onchange="searchTeam(this.value)">
           <% for(let team of teamList){ %>
           <option value="<%= team['_id'] %>"><%=team['name']%></option>
           <%}%>
         </select>
 
-        <div class="team">
+        <div id="team">
           <h2>Team Name</h2>
           <img
             src="https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg"

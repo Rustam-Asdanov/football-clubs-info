@@ -76,3 +76,9 @@ function createTeamCard(team) {
       "https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg";
   };
 }
+
+document.getElementById("transfer-btn").addEventListener("click", () => {
+  const player_id = document.getElementsByName("player_id")[0].value;
+  const team_id = document.getElementsByName("team_id")[0].value;
+  console.log("Player: " + player_id + "\n Team: " + team_id);
+});

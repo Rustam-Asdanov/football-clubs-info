@@ -25,7 +25,7 @@
           <h2>Player Name</h2>
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/football-player-1426973-1208513.png"
-            alt=""
+            alt="player_name"
           />
         </div>
       </div>
@@ -35,15 +35,17 @@
         alt=""
       />
       <div>
-        <select onchange="createTeamCard(this.value)">
-          <option selected disabled>Select team</option>
-          <option value="man">Man</option>
+        <select onchange="searchTeam(this.value)">
+          <% for(let team of teamList){ %>
+          <option value="<%= team['_id'] %>"><%=team['name']%></option>
+          <%}%>
         </select>
+
         <div class="team">
           <h2>Team Name</h2>
           <img
             src="https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg"
-            alt=""
+            alt="team_name"
           />
         </div>
       </div>

@@ -1,7 +1,9 @@
 const Team = require("../models/Team");
 
-const getTeams = async (page) => {
-  if (page === "all_teams") {
+const getTeams = async (page, full = "true") => {
+  if (full === "false") {
+    return await Team.find({}, { _id: 1, name: 1, logo: 1 });
+  } else if (page === "all_teams") {
     return await Team.find({});
   } else {
     return await Team.find({})
@@ -10,8 +12,20 @@ const getTeams = async (page) => {
   }
 };
 
-const getTeam = async (id) => {
-  return await Team.findById(id);
+const getTeam = async (id, full = "true") => {
+  console.log(full);
+  if (full === "true") {
+    return await Team.findById(id);
+  } else {
+    return await Team.find(
+      { _id: id },
+      {
+        _id: 1,
+        name: 1,
+        logo: 1,
+      }
+    );
+  }
 };
 
 const addTeam = async (body) => {

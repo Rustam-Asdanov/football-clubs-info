@@ -96,7 +96,13 @@ const getPlayerPageByName = async (req, res) => {
 };
 
 const getPlayerTransferPage = async (req, res) => {
-  res.render("player-transfer");
+  const teams = await getTeams("all_teams", "false")
+    .then((result) => result)
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+
+  res.render("player-transfer", { teamList: teams });
 };
 
 module.exports = {

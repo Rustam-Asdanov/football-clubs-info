@@ -52,6 +52,6 @@ function createPlayerCard(player) {
   document.querySelector("div#search-result").classList.add("hide");
 }
 
-function createTeamCard(team_name) {
+function searchTeam(team_name) {
   console.log(team_name);
 }

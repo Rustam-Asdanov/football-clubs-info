@@ -25,7 +25,9 @@ const getAllTeams = async (req, res) => {
 
 const getTeamById = async (req, res) => {
   const id = req.params.id;
-  await getTeam(id)
+  let full = req.query.full;
+
+  await getTeam(id, full)
     .then((result) => {
       if (!result || result.length == 0) {
         res

@@ -43,10 +43,15 @@ const getSomePlayer = async (id) => {
 
 const createPlayer = async (club_name, player) => {
   delete player["_id"];
-  const team = await Team.findOne({ name: club_name });
-  team.players.push(player);
-  console.log(team);
-  return await team.save();
+  const team = await Team.updateOne(
+    { name: club_name },
+    {
+      $push: {
+        players: player,
+      },
+    }
+  );
+  return team;
 };
 
 // this method delete player by id
@@ -105,12 +110,12 @@ const findPlayerByName = async (name) => {
 };
 
 const changePlayerTeam = async (player_id, team_name) => {
-  let myPlayer = await getSomePlayer(player_id);
-  console.log(delete myPlayer._id);
-  console.log(myPlayer);
-  // await deletePlayer(player_id);
-  // player["club"] = team_name;
-  // return createPlayer(team_name, player);
+  const myPlayer = await getSomePlayer(player_id);
+  await deletePlayer(player_id);
+
+  myPlayer["club"] = team_name;
+
+  return await createPlayer(team_name, myPlayer);
 };
 
 module.exports = {

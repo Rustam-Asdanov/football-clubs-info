@@ -94,7 +94,8 @@ document.getElementById("transfer-btn").addEventListener("click", async () => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
+      alert(result.message);
+      location.reload();
     })
     .catch((err) => {
       console.log(err);

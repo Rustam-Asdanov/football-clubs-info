@@ -142,7 +142,6 @@ const transferPlayer = async (req, res) => {
 
   await changePlayerTeam(player_id, team_name)
     .then((response) => {
-      console.log("ss" + response);
       res.status(200).json({ message: "Success" });
     })
     .catch((err) => {

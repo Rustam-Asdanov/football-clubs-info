@@ -9,7 +9,9 @@ Impressive project
 - [![Ejs][ejs]].[ejs-url]
 - [![CSS][css]].[css-url]
 - [![JavaScript][javascript]].[javascript-url]
-- [![mongodb][mongodb]].[mongodb-url]
+  <a href="https://www.mongodb.com/docs/">
+  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="mongodb"/>
+  </a>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

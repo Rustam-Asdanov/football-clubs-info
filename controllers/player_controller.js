@@ -138,7 +138,10 @@ const transferPlayer = async (req, res) => {
   const player_id = req.body.playerId;
   const team_name = req.body.teamName;
 
-  console.log(player_id, team_name);
+  if (player_id === "" || team_name === "") {
+    res.status(400).json({ message: "Fill all inputs." });
+    return;
+  }
 
   await changePlayerTeam(player_id, team_name)
     .then((response) => {
@@ -146,7 +149,7 @@ const transferPlayer = async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(400).json({ message: "Some problems" });
+      res.status(500).json({ message: "Some problems" });
     });
 };
 

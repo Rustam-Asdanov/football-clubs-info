@@ -5,8 +5,10 @@ const team_box = document.getElementById("team");
 // meathod search player in base
 async function searchPlayer(player_name) {
   const player_options = document.querySelector("div#search-result");
-  if (player_name.value == "") player_options.classList.add("hide");
-  if (player_name.value == "") return;
+  if (player_name.value == "") {
+    player_options.classList.add("hide");
+    return;
+  }
 
   player_options.classList.remove("hide");
 
@@ -81,6 +83,15 @@ function createTeamCard(team) {
 document.getElementById("transfer-btn").addEventListener("click", async () => {
   const player_id = document.getElementsByName("player_id")[0].value;
   const team_name = document.getElementsByName("team_name")[0].value;
+
+  if (player_id === "") {
+    alert("Please select the player.");
+    return;
+  }
+  if (team_name === "") {
+    alert("Please select the team");
+    return;
+  }
 
   await fetch("/api/v1/player/transfer", {
     method: "POST",

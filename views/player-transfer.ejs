@@ -36,6 +36,7 @@
       />
       <div>
         <select name="team_id" onchange="searchTeam(this.value)">
+          <option disabled selected>Select team</option>
           <% for(let team of teamList){ %>
           <option value="<%= team['_id'] %>"><%=team['name']%></option>
           <%}%>

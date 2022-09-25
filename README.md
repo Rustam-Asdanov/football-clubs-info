@@ -14,8 +14,6 @@ players.
 
 # Usage
 
----
-
 In main menu you can choose option which you want
 
 ![img_1](/public/img_1.png)
@@ -53,8 +51,6 @@ the player move.
 ### Project Link: [Player Cards](https://github.com/Rustam-Asdanov/player_cards)
 
 # Acknowledgments
-
----
 
 - [Mongoose](https://mongoosejs.com/docs/)
 - [Colorizer](https://coolors.co/)

@@ -73,7 +73,7 @@ function createTeamCard(team) {
   team_box.children[0].value = team["name"];
   team_box.children[1].textContent = team["name"];
   team_box.children[2].alt = team["name"];
-  team_box.children[2].src = "/team_logos/" + team["name"];
+  team_box.children[2].src = "/team_logos/" + team["logo"];
   team_box.children[2].onerror = () => {
     team_box.children[2].src =
       "https://static.vecteezy.com/system/resources/previews/007/166/414/original/football-club-logo-design-template-vector.jpg";

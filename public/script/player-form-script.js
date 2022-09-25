@@ -47,6 +47,7 @@ function sendData(event) {
   if (myForm["submit"].value === "Save") {
     newObject(formDataObj);
   } else if (myForm["submit"].value === "Modify") {
+    delete myForm["club"];
     modifyObject(myForm["_id"].value, formDataObj);
     document.getElementById("p-club").removeAttribute("disabled");
   }

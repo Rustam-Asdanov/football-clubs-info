@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Bayern Munich",
+    "country": "Germany",
+    "league": "Bundesliga",
+    "coach": "Julian Nagelsmann",
+    "balance": "878.700.000 euro",
+    "logo": "bayern-munich.png",
+    "players": [
+      {
+        "number": 6,
+        "fullname": "Joshua Kimmich",
+        "country": "Germany",
+        "club": "Bayern Munich",
+        "position": "Defender",
+        "age": 27,
+        "image": "https://futhead.cursecdn.com/static/img/22/players_alt/p100875918.png",
+        "rating": {
+          "pace": 70,
+          "dribbling": 84,
+          "shooting": 73,
+          "defending": 83,
+          "passing": 86,
+          "physical": 79,
+          "overall": 79
+        }
+      },
+      {
+        "number": 1,
+        "fullname": "Manuel Neuer",
+        "country": "Germany",
+        "club": "Bayern Munich",
+        "position": "Goalkeeper",
+        "age": 36,
+        "image": "https://cdn.futbin.com/content/fifa22/img/players/p100830791.png",
+        "rating": {
+          "pace": 88,
+          "dribbling": 88,
+          "shooting": 88,
+          "defending": 56,
+          "passing": 91,
+          "physical": 89,
+          "overall": 83
+        }
+      },
+      {
+        "number": 17,
+        "fullname": "Sadio Mane",
+        "country": "Senegal",
+        "club": "Bayern Munich",
+        "position": "Attack",
+        "age": 30,
+        "image": "https://cdn.futbin.com/content/fifa22/img/players/p151203666.png",
+        "rating": {
+          "pace": 99,
+          "dribbling": 99,
+          "shooting": 97,
+          "defending": 60,
+          "passing": 96,
+          "physical": 94,
+          "overall": 91
+        }
+      },
+      {
+        "number": 25,
+        "fullname": "Thomas Muller",
+        "country": "Germany",
+        "club": "Bayern Munich",
+        "position": "Midfield",
+        "age": 33,
+        "image": "https://www.futwiz.com/assets/img/fifa22/faces/100852892.png",
+        "rating": {
+          "pace": 91,
+          "dribbling": 93,
+          "shooting": 94,
+          "defending": 68,
+          "passing": 91,
+          "physical": 85,
+          "overall": 87
+        }
+      },
+      {
+        "number": 19,
+        "fullname": "Alphonso Davies",
+        "country": "Canada",
+        "club": "Bayern Munich",
+        "position": "Defender",
+        "age": 21,
+        "image": "https://futhead.cursecdn.com/static/img/21/players_alt/p84120476.png",
+        "rating": {
+          "pace": 99,
+          "dribbling": 93,
+          "shooting": 85,
+          "defending": 89,
+          "passing": 87,
+          "physical": 88,
+          "overall": 90
+        }
+      },
+      {
+        "number": 10,
+        "fullname": "Leroy Sane",
+        "country": "Germany",
+        "club": "Bayern Munich",
+        "position": "Attack",
+        "age": 26,
+        "image": "https://futhead.cursecdn.com/static/img/21/players_alt/p67331356.png",
+        "rating": {
+          "pace": 96,
+          "dribbling": 92,
+          "shooting": 86,
+          "defending": 45,
+          "passing": 84,
+          "physical": 76,
+          "overall": 80
+        }
+      }
+    ]
+  },
+  {
+    "name": "Barcelona",
+    "country": "Spain",
+    "league": "La Liga",
+    "coach": "Xavier Hernández (Xavi)",
+    "balance": "813.700.000 euro",
+    "logo": "barcelona.png",
+    "players": []
+  },
+  {
+    "name": "Manchester City",
+    "country": "England",
+    "league": "Premier League",
+    "coach": "Pep Guardiola",
+    "balance": "1.060.000.000 euro",
+    "logo": "manchester-city.png",
+    "players": [
+      {
+        "number": 10,
+        "fullname": "Jack Grealish",
+        "country": "England",
+        "club": "Manchester City",
+        "position": "Attack",
+        "age": 27,
+        "image": "https://cdn.futbin.com/content/fifa22/img/players/p84092597.png",
+        "rating": {
+          "pace": 90,
+          "dribbling": 93,
+          "shooting": 87,
+          "defending": 48,
+          "passing": 89,
+          "physical": 76,
+          "overall": 81
+        }
+      },
+      {
+        "number": 9,
+        "fullname": "Erling Haaland",
+        "country": "Norway",
+        "club": "Manchester City",
+        "position": "Attack",
+        "age": 22,
+        "image": "https://www.futwiz.com/assets/img/fifa22/faces/67347949.png",
+        "rating": {
+          "pace": 98,
+          "dribbling": 95,
+          "shooting": 99,
+          "defending": 56,
+          "passing": 90,
+          "physical": 98,
+          "overall": 89
+        }
+      }
+    ]
+  },
+  {
+    "name": "Paris Saint-Germain",
+    "country": "France",
+    "league": "League 1",
+    "coach": "Christophe Galtier",
+    "balance": "890.350.000 euro",
+    "logo": "paris-saint-germain.png",
+    "players": []
+  },
+  {
+    "name": "Qarabağ FK",
+    "country": "Azerbaijan",
+    "league": "Premyer Liqa",
+    "coach": "Gurban Gurbanov",
+    "balance": "13.480.000 euro",
+    "logo": "qarabağ-fk.png",
+    "players": []
+  },
+  {
+    "name": "AC Milan",
+    "country": "Italy",
+    "league": "AC Milan",
+    "coach": "Stefano Pioli",
+    "balance": "555.550.000 euro",
+    "logo": "ac-milan.png",
+    "players": []
+  }
+]

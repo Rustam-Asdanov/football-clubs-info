@@ -24,7 +24,7 @@ const getPlayerForm = async (req, res) => {
       res.status(500).json(err);
     });
 
-  if (myPlayers.length == 0) {
+  if (myPlayers.length == 0 && page != 0) {
     res.status(404).json({ message: "There are no more players." });
   } else {
     res.render("player-form", { teams: myTeams, players: myPlayers });

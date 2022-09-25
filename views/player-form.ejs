@@ -50,13 +50,14 @@
         </select>
 
         <label for="p-position">Position</label>
-        <input
-          type="text"
-          name="position"
-          id="p-position"
-          placeholder="CF"
-          required
-        />
+
+        <select name="position" id="p-position">
+          <option selected>Select position</option>
+          <option value="Goalkeeper">Goalkeeper</option>
+          <option value="Defender">Defender</option>
+          <option value="Midfield">Midfield</option>
+          <option value="Attack">Attack</option>
+        </select>
 
         <label for="p-age">Age</label>
         <input type="text" name="age" id="p-age" placeholder="25" required />

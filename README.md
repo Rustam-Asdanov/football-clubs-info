@@ -12,6 +12,32 @@ players. Also you can create your own club and add them your players.
 - [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/docs/)
 - [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/cssref/default.asp)
 
+# Getting Started
+
+## Prerequisites
+
+For the best performance of this Web Application on your computer you must install - Node, NPM and MongoDB.
+
+1. [How install Node and Npm] - (https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac)
+2. [How install MongoDB] - (https://www.mongodb.com/docs/manual/administration/install-community/)
+
+3. After installation download project as a zip file or clone the reqo:
+
+```sh
+ git clone https://github.com/Rustam-Asdanov/player_cards
+```
+
+4. Install NPM packages
+
+```sh
+ npm install
+```
+
+5. In the line 31 in app.js instead of (`process.env.MONGO_URL`) use your link for the connection to MongoDB server, also create DataBase there.
+   Watch [this] (https://mongodb.github.io/node-mongodb-native/3.4/tutorials/connect/)
+
+6. Extra. You can use [this file] (https://github.com/Rustam-Asdanov/player_cards/blob/main/starter-base.json) for creating some teams and players. Copy all data in file. Then use (`db.teams.insertMany()`) command and insert all data to the data base. Data which you copied from file but between the brackets.
+
 # Usage
 
 In main menu you can choose option which you want

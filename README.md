@@ -1,8 +1,8 @@
 # About The Project
 
 This web application oriented to the football fans. There you can find
-information about current football clubs and information about their
-players.
+information about current football clubs and about their
+players. Also you can create your own club and add them your players.
 
 ## Build With
 
@@ -24,23 +24,35 @@ edit and remove them.
 ![new-team](/public/project_screens/team-form.png)
 
 In this page you add new player, edit them or delete. In the table you
-can see all players. Of course you cnan also find them by using search
+can see all players. Of course you can also find them by using search
 box.
 
+Form for adding player:
+
 ![player-form](/public/project_screens/player-form-1.png)
+
+Table which shows existing players:
+
 ![player-form](/public/project_screens/player-form-2.png)
 
-Team cards shows all teams with logo and name. Button more info redirect
-you to new page, where you find a lot of information about selected
+Team cards shows all teams with logo and name. Button "More Info" redirect
+you to new page, where you get a lot of information about selected
 team.
 
 ![team-base](/public/project_screens/team-cards.png)
 
-How looks like team info page. There is two options, table view or card
-view. You can coose one of them or both.
+This is what the team information page looks like. There are two options: table view or map view. You can choose one of them or both.
+
+Short info about team:
 
 ![team-info](/public/project_screens/team-info.png)
+
+Team players represented in table form:
+
 ![team-info](/public/project_screens/team-info-table.png)
+
+Team players represented in card form:
+
 ![team-info](/public/project_screens/team-info-cards.png)
 
 In the last page you get the transfer option of players. Firstly you

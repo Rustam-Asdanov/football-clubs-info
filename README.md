@@ -16,35 +16,38 @@ players.
 
 In main menu you can choose option which you want
 
-![img_1](/public/img_1.png)
+![main-page](/public/project_screens/main-page.png)
 
 There you create new team(s) and see them in table. Also you can easily
 edit and remove them.
 
-![img_2](/public/img_2.png)
+![new-team](/public/project_screens/team-form.png)
 
 In this page you add new player, edit them or delete. In the table you
 can see all players. Of course you cnan also find them by using search
 box.
 
-![img_3](/public/img_3.png)
+![player-form](/public/project_screens/player-form-1.png)
+![player-form](/public/project_screens/player-form-2.png)
 
 Team cards shows all teams with logo and name. Button more info redirect
 you to new page, where you find a lot of information about selected
 team.
 
-![img_4](/public/img_4.png)
+![team-base](/public/project_screens/team-cards.png)
 
 How looks like team info page. There is two options, table view or card
 view. You can coose one of them or both.
 
-![img_5](/public/img_5.png)
+![team-info](/public/project_screens/team-info.png)
+![team-info](/public/project_screens/team-info-table.png)
+![team-info](/public/project_screens/team-info-cards.png)
 
 In the last page you get the transfer option of players. Firstly you
 should find player who you want to transfer. Then you choose team where
 the player move.
 
-![img_5](/public/img_5.png)
+![player-transfer](/public/project_screens/player-transfer.png)
 
 ### Rustam Asdanov - [LinkedIn](https://az.linkedin.com/in/rustamasdanov) - <asdanovrustam@gmail.com>
 

@@ -24,7 +24,7 @@ For the best performance of this Web Application on your computer you must insta
 3. After installation download project as a zip file or clone the reqo:
 
 ```sh
- git clone https://github.com/Rustam-Asdanov/player_cards
+ git clone https://github.com/Rustam-Asdanov/football-clubs-info
 ```
 
 4. Install NPM packages
@@ -36,7 +36,7 @@ For the best performance of this Web Application on your computer you must insta
 5. In the line 31 in app.js instead of (`process.env.MONGO_URL`) use your link for the connection to MongoDB server, also create DataBase there.
    Watch [this] (https://mongodb.github.io/node-mongodb-native/3.4/tutorials/connect/)
 
-6. Extra. You can use [this file] (https://github.com/Rustam-Asdanov/player_cards/blob/main/starter-base.json) for creating some teams and players. Copy all data in file. Then use (`db.teams.insertMany()`) command and insert all data to the data base. Data which you copied from file but between the brackets.
+6. Extra. You can use [this file] (https://github.com/Rustam-Asdanov/football-clubs-info/blob/main/starter-base.json) for creating some teams and players. Copy all data in file. Then use (`db.teams.insertMany()`) command and insert all data to the data base. Data which you copied from file but between the brackets.
 
 # Usage
 
@@ -89,7 +89,7 @@ the player move.
 
 ### Rustam Asdanov - [LinkedIn](https://az.linkedin.com/in/rustamasdanov) - <asdanovrustam@gmail.com>
 
-### Project Link: [Player Cards](https://github.com/Rustam-Asdanov/player_cards)
+### Project Link: [Football Clubs Info](https://github.com/Rustam-Asdanov/football-clubs-info)
 
 # Acknowledgments
 
